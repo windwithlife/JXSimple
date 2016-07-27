@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/simple/core/database/DAO.java=UTF-8
+encoding//src/main/java/com/simple/core/database/DAOImpl.java=UTF-8
+encoding//src/main/java/com/simple/core/database/Page.java=UTF-8
+encoding//src/main/java/com/simple/core/database/ResultToBeanTransformers.java=UTF-8
+encoding//src/main/java/com/simple/core/database/SummaryField.java=UTF-8
+encoding//src/main/java/com/simple/core/util/Collections3.java=UTF-8
+encoding//src/main/java/com/simple/core/util/EncodeUtils.java=UTF-8
+encoding//src/main/java/com/simple/core/util/FileUtils.java=UTF-8
+encoding//src/main/java/com/simple/core/util/PropertyUtils.java=UTF-8
+encoding//src/main/java/com/simple/core/util/ReflectionUtils.java=UTF-8
+encoding//src/main/java/com/simple/core/util/Reflections.java=UTF-8
+encoding//src/main/java/com/simple/core/util/TablePostfix.java=UTF-8
+encoding//src/main/java/com/simple/core/util/ZipHandle.java=UTF-8
