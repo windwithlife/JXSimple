@@ -46,6 +46,8 @@ public class UserController {
     public String noPersmission(){
        return "403";
     }
+    
+   
 	@RequestMapping(value="/login",method=RequestMethod.POST)
     public String login(HttpServletRequest request, Map<String, Object> map) throws Exception {
        System.out.println("HomeController.login()");
@@ -72,6 +74,6 @@ public class UserController {
        }
        map.put("msg", msg);
        // 此方法不处理登录成功,由shiro进行处理.
-       return "/login";
+       return "login";
     }
 }
