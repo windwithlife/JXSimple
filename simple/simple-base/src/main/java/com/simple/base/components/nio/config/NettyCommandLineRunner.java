@@ -18,9 +18,11 @@ public class NettyCommandLineRunner implements CommandLineRunner {
 	@Override
 	public void run(String... arg0) throws Exception {
 		// TODO Auto-generated method stub
+		/*
 		nioServer.stopServer();
 		nioServer.startServer();
 		System.out.println(">>>>>>>>>>>>>>>NIO(Netty)服务启动执行，执行加载数据等操作<<<<<<<<<<<<<");
+		*/
 	}
 
 }

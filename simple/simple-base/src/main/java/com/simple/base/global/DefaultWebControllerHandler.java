@@ -14,9 +14,8 @@ public class DefaultWebControllerHandler {
     public void defaultErrorHandler(HttpServletRequest req, Exception e)  {
 
        //打印异常信息：
-       //e.printStackTrace();
        System.out.println("GlobalDefaultExceptionHandler");
- 
+       e.printStackTrace();
   }
     
    

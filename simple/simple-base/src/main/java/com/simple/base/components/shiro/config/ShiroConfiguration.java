@@ -14,7 +14,7 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 
-@Configuration
+//@Configuration
 public class ShiroConfiguration {
       
  
