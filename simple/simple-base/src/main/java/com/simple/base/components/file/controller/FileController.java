@@ -41,18 +41,19 @@ public class FileController {
 	@Autowired
 	FileUploadService fileservice;
 	
-	@Secured("ADMIN")
-	@RequestMapping("/uploadpage")
+	
+
+	@RequestMapping(value = "/uploadpage", method = RequestMethod.POST)
 	public String uploadfile() {
 		return "upload";
 	}
 
-	@RequestMapping("/getFilePath")
+	@RequestMapping(value = "/getFilePath", method = RequestMethod.GET)
 	@ResponseBody
 	public String getFileFullPath(@RequestParam("id") Long fId) {
 		return fileservice.getFilePathById(fId);
 	}
-	@RequestMapping("/upload")
+	@RequestMapping(value = "/upload",  method = RequestMethod.POST)
 	@ResponseBody
 	public String handleFileUpload(@RequestParam("file") MultipartFile file) {
 	

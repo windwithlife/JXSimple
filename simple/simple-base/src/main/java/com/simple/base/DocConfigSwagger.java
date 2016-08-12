@@ -1,3 +1,5 @@
+
+
 package com.simple.base;
 
 import org.springframework.context.annotation.Bean;
@@ -13,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class Swagger2 {
+public class DocConfigSwagger {
 
     @Bean
     public Docket createRestApi() {

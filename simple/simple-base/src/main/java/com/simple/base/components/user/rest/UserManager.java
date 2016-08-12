@@ -7,6 +7,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -40,7 +41,7 @@ public class UserManager {
      * @return
      */
 	@Secured("ROLE_TELLER")
-    @RequestMapping("/userList")
+    @RequestMapping(value = "/userList", method=RequestMethod.GET)
     public String userInfo(){
        return "userInfo";
     }
@@ -49,8 +50,8 @@ public class UserManager {
      * 用户添加;
      * @return
      */
-    @RequestMapping("/userAdd")
-    @RequiresPermissions("userInfo:add")//权限管理;
+  
+    @RequestMapping(value = "/userAdd", method=RequestMethod.POST)
     public String userInfoAdd(){
        return "userInfoAdd";
     }
@@ -59,8 +60,9 @@ public class UserManager {
      * 用户删除;
      * @return
      */
-    @RequestMapping("/userDel")
-    @RequiresPermissions("userInfo:del")//权限管理;
+  
+    @RequestMapping(value = "/userDel", method=RequestMethod.POST)
+  
     public String userDel(){
        return "userInfoDel";
     }

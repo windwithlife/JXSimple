@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,17 +28,18 @@ public class AdminController  implements EnvironmentAware {
         this.port = s;
     }
 	 
-	   @RequestMapping("/iot")
-	  
+	
+	   @RequestMapping(value= "/iot", method=RequestMethod.GET)
 	    public String rootpage(){
 	       return "index";
-	    }
-	   @RequestMapping("/iot/deviceType")
+	   }
+	 
+	   @RequestMapping(value= "/iot/deviceType", method=RequestMethod.GET)
 	    //@RequiresPermissions("userInfo:del")//权限管理;
 	    public String channelpage(){
 	       return "index";
 	    }
-	   @RequestMapping("/analyse/{side}")
+	   @RequestMapping(value= "/analyse/{side}", method=RequestMethod.GET)
 	    //@RequiresPermissions("userInfo:del")//权限管理;
 	    public ModelAndView manageAndAnalysis(@PathVariable String side){
 		     String url = "http://localhost:" + this.port + "/manage/" + side;

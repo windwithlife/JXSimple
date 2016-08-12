@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.simple.base.bz.iot.entity.DeviceType;
 import com.simple.base.bz.iot.service.DeviceTypeService;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 
 @Controller
 @RequestMapping("/iot")
@@ -18,14 +22,17 @@ public class IOTController {
 	@Autowired
 	DeviceTypeService deviceTypeService;
 
-	@RequestMapping("/deviceTypes/")
+	 @ApiOperation(value="设备列表", notes="获取所有设备类型列表")
+	    
+	@RequestMapping(value = "/deviceTypes/", method=RequestMethod.GET)
 	@ResponseBody
-	// @RequiresPermissions("userInfo:del")//权限管理;
 	public List<DeviceType> deviceTypes() {
 		return deviceTypeService.getDevices();
 	}
 
-	@RequestMapping("/deviceTypes/{id}")
+	@ApiOperation(value="设备类型", notes="根据ID取得设备类型")
+	@ApiImplicitParam(name = "id", value = "设备类型ID", required = true, dataType = "Integer")
+	@RequestMapping(value = "/deviceTypes/{id}", method=RequestMethod.GET)
 	@ResponseBody
 	// @RequiresPermissions("userInfo:del")//权限管理;
 	public DeviceType channelpage(Long id) {
@@ -33,9 +40,9 @@ public class IOTController {
 		//return "index";
 	}
 
-	@RequestMapping("/deviceTypes/save")
+	
 	@ResponseBody
-	// @RequiresPermissions("userInfo:del")//权限管理;
+	@RequestMapping(value = "/deviceTypes/save", method=RequestMethod.POST)
 	public DeviceType save(@RequestBody DeviceType dt) {
 		return deviceTypeService.save(dt);
 		//return "index";

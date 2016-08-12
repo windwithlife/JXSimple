@@ -22,15 +22,16 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/register")
+	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public long register(@RequestBody User user){
 		//nioServer.startServer();
 		return userService.register(user);
 	}
 	
-	@RequestMapping({"/","/index"})
+
+	@RequestMapping(value={"/","/index"},method=RequestMethod.GET)
     public String index(){
-       return "/index";
+       return "index";
     }
    
     @RequestMapping(value="/login",method=RequestMethod.GET)
@@ -42,7 +43,8 @@ public class UserController {
      * 用户添加;
      * @return
      */
-    @RequestMapping("/403")
+    
+    @RequestMapping(value="/403",method=RequestMethod.GET)
     public String noPersmission(){
        return "403";
     }
