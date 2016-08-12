@@ -65,6 +65,12 @@
 			<groupId>com.simple</groupId>
 			<artifactId>simple-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+  <exclusion>
+            <groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+  </exclusion>
+</exclusions>
 		</dependency>
 
 		<dependency>
@@ -113,13 +119,13 @@
 			<version>2.1.2.RELEASE</version>
 		</dependency>
 
-		
-		  <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjrt</artifactId>
-      <version>1.8.4</version>
-     
-    </dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.4</version>
+
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-aspects</artifactId>
@@ -130,6 +136,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>1.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
 		</dependency>
 	</dependencies>
 

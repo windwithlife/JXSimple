@@ -1,8 +1,9 @@
-package com.simple.base.components.shiro.controller;
+package com.simple.base.components.user.rest;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.AuthorizationException;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,7 @@ public class UserManager {
      * 用户查询.
      * @return
      */
+	@Secured("ROLE_TELLER")
     @RequestMapping("/userList")
     public String userInfo(){
        return "userInfo";

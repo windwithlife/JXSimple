@@ -31,7 +31,7 @@ import org.springframework.context.annotation.AdviceMode;
 
 //import org.springframework.security.data.repository.query.SecurityEvaluationContextExtension;
 
-
+@EnableGlobalMethodSecurity(securedEnabled = true)
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 

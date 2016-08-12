@@ -14,7 +14,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.simple.base.components.wechat.service.WeiXinService;
-import com.simple.core.util.WebRequestParser;
 
 
 import org.apache.logging.log4j.Logger;
