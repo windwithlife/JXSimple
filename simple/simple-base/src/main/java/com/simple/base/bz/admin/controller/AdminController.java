@@ -6,6 +6,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,17 +17,18 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/admin")
 public class AdminController  implements EnvironmentAware {
-	   //@Autowired
-	   //private RestTemplate restRao;
+	
+	 private String port ;
+	 
 	@Override
     public void setEnvironment(Environment environment) {
         String s = environment.getProperty("server.port");
         System.out.println(s);
         this.port = s;
     }
-	private String port ;
+	 
 	   @RequestMapping("/iot")
-	    //@RequiresPermissions("userInfo:del")//权限管理;
+	  
 	    public String rootpage(){
 	       return "index";
 	    }

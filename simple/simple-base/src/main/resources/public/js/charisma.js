@@ -75,6 +75,7 @@ $(document).ready(function () {
     });
 
     //establish history variables
+    /*
     var
         History = window.History, // Note: We are using a capital H instead of a lower h
         State = History.getState(),
@@ -95,7 +96,7 @@ $(document).ready(function () {
             }
         });
     });
-
+    */
     //ajaxify menus
     $('a.ajax-link').click(function (e) {
         if (msie) e.which = 1;
@@ -106,7 +107,7 @@ $(document).ready(function () {
         $('#loading').remove();
         $('#content').fadeOut().parent().append('<div id="loading" class="center">Loading...<div class="center"></div></div>');
         var $clink = $(this);
-        History.pushState(null, null, $clink.attr('href'));
+        //History.pushState(null, null, $clink.attr('href'));
         $('ul.main-menu li.active').removeClass('active');
         $clink.parent('li').addClass('active');
     });
