@@ -13,7 +13,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration
+
 @EnableSwagger2
 public class DocConfigSwagger {
 
@@ -29,11 +29,11 @@ public class DocConfigSwagger {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring Boot中使用Swagger2构建RESTful APIs")
-                .description("更多Spring Boot相关文章请关注：")
-                .termsOfServiceUrl("http://blog.didispace.com/")
-                .contact("程序猿DD")
-                .version("1.0")
+                .title("SOA APIs 查询平台")
+                .description("更多请关注：windwithlife.cnblogs.com")
+                .termsOfServiceUrl("http://www.zhangyongqiao.com/")
+                .contact("岁月无声")
+                .version("2.0")
                 .build();
     }
 

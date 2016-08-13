@@ -22,9 +22,9 @@ define(['simple','text!./templates/edit.html','router','homeModel'], function (S
             this.$el.append(tpl);
             this.template = _.template($("#MainTemplate").html());
             var that = this;
-            var p = Simple.P("_id");
-            console.log("_id:" + p);
-            homeModel.queryById({_id:p},function(data){
+            var p = Simple.P("id");
+            console.log("id:" + p);
+            homeModel.queryById({id:p},function(data){
                 var params = {};params.data = data.data;
                 that.$el.html(that.template(params));
             })
@@ -33,7 +33,7 @@ define(['simple','text!./templates/edit.html','router','homeModel'], function (S
 
         },
         back:function(){
-            xNavigator.back();
+        	router.back();
             console.log('list back done');
         },
         saveUpdate: function(){
