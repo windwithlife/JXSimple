@@ -33,26 +33,21 @@
                     <div class="form-group">
 						 <label for="exampleInputEmail1">设备图片</label>
                       	 <input type="text" value ="test.png" class="form-control" id="add-pic" placeholder="Enter Image" />
-	                     <img name="pic" id="pic" alt="" src="" />
+	                     <img style='display:none' name="pic" id="pic" alt="No Image!" src="" />
+                    </div>
+                    <div class="form-group">
+                      	 <input type="hidden" value ="-1" class="form-control" id="add-pic-id" placeholder="Enter Image" />
                     </div>
          <!-- /file upload begin -->        
 
 <form method="POST" enctype="multipart/form-data" action="/files/upload" target="hidden_frame">
 
 	
-		<p> 文件：<input id="file" type="file" name="file" onchange="changePicUrl()" /> </p>
-           <p><input type="submit" value="上传" /> </p>
+		<input id="file" type="file" name="file" onchange="changePicUrl()" />
+           <input type="submit" value="上传" />
 		
-		
-		   <div id="firstUploadSucceed" style="display: none;">
-                <strong>新增成功！</strong><span id="firstUploadSucceedMsg"></span>
-            </div>
-            <div id="firstUploadFailed" style="display: none;">
-                <strong>对不起！新增失败</strong><span id="firstUploadFailedMsg"></span>
-            </div>
 	</form>
-   <div id ="picId" style='display:none' data-picId="0"> </div>
-   <div id ="picPath" style='display:none' data-picPath="0"> </div>
+ 
    <iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
   <!-- /file upload end -->
 
@@ -64,50 +59,25 @@
             </div>
         </div><!-- /.box -->
 
-</script>
+
 
 <script type="text/javascript">
   	function changePicUrl(){
 		var dFile = document.getElementById('file');
-		var dImg = document.getElementById('pic');
- 		if(dFile.files){
-  			dImg.src = dFile.files[0].name;
- 		}else if(dFile.value.indexOf('\\') > -1 || dFile.value.indexOf('\/') > -1){
-  			dImg.src = dFile.value;
- 		}
 	}
   	function uploadSucced(msg,id,path){
-  		
-  		$("#picId").html(id);	
-  		$("#picPath").html(path);	
-  		
-		$("#firstUploadSucceedMsg").html(msg);
-		$("#firstUploadSucceed").show();
-		$("#firstUploadFailed").hide();
-		var dImg = document.getElementById('pic');
-  		dImg.src=path;
+
+        document.getElementById('pic').src=path;
+        $("#pic").show();
+        document.getElementById("add-pic").value = path;
+        document.getElementById("add-pic-id").value = id;
+        alert("Successful to upload file:" + path);
+
 	}
 	//表单提交修改失败后，传回提示信息
 	function uploadFailed(msg){
-		$("#firstUploadFailedMsg").html(msg);
-		$("#firstUploadFailed").show();
-		$("#firstUploadSucceed").hide();
+		alert("Failed to upload file INFO:" + msg);
 	}
-   </script>
-	<form method="POST" enctype="multipart/form-data" action="/files/upload" target="hidden_frame">
+  </script>
 
-		<img name="pic" id="pic" alt="" src="" />
-		<p> 文件：<input id="file" type="file" name="file" onchange="changePicUrl()" /> </p>
-           <p><input type="submit" value="上传" /> </p>
-		
-		
-		 <div id="firstUploadSucceed" style="display: none;">
-                <strong>新增成功！</strong><span id="firstUploadSucceedMsg"></span>
-            </div>
-            <div id="firstUploadFailed" style="display: none;">
-                <strong>对不起！新增失败</strong><span id="firstUploadFailedMsg"></span>
-            </div>
-	</form>
-   <div id ="picId" style='display:none' data-picId="0"> </div>
-   <div id ="picPath" style='display:none' data-picPath="0"> </div>
-   <iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
+</script>

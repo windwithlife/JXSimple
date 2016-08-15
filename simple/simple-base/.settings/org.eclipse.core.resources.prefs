@@ -5,5 +5,7 @@ encoding//src/main/resources=UTF-8
 encoding//src/main/resources/public/admin/iot/deviceType/templates/add.html=UTF-8
 encoding//src/main/resources/public/admin/iot/deviceType/templates/mainview.html=UTF-8
 encoding//src/main/resources/public/admin/iot/templates/test.html=UTF-8
+encoding//src/main/resources/templates/layout/footer-charisma.html=UTF-8
+encoding//src/main/resources/templates/layout/layout-ch.html=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

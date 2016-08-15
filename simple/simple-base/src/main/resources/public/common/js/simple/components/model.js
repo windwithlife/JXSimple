@@ -25,7 +25,10 @@ define(['simple', 'jquery'], function (Simple, $) {
              $.post(this.url,this.params, _.bind(this.__onResult,this),"json");
          },
          "post" : function(url,params,callback){
-             $.post(url,params,function (data, textStatus){
+        	 $.ajaxSetup({  
+        		 contentType: "application/json; charset=utf-8"
+        	    });  
+             $.post(url,JSON.stringify(params),function (data, textStatus){
                      if (textStatus == "success"){
                          callback(data);
                      }else{

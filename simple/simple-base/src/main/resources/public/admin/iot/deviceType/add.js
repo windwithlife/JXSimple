@@ -28,14 +28,15 @@ define(['simple','text!./templates/add.html','router','homeModel'], function (Si
 
         },
         back:function(){
-            xNavigator.back();
             console.log('list back done');
         },
         saveUpdate: function(){
             //alert("saveUPdate!");
             var params = {};
+            
+            params.picid = $("#add-pic-id").val();
             params.pic = $("#add-pic").val();
-            params.desc = $("#add-desc").val();
+            params.des = $("#add-desc").val();
                 params.name = $("#add-name").val();
             
                 params.model = $("#add-model").val();
@@ -43,7 +44,7 @@ define(['simple','text!./templates/add.html','router','homeModel'], function (Si
             console.log("form data value:" +　JSON.stringify(params));
             homeModel.add(params,function(result){
                  console.log("AddNewSave result:" + JSON.stringify(result));
-                if(result.success){
+                if(result){
                     router.goto("");
                 }
             });

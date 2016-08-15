@@ -16,6 +16,7 @@ public class DeviceType implements Serializable{
 	    private Long id; // 编号
 	    private String name; // 角色标识程序中判断使用,如"admin",这个是唯一的:
 	    private String pic; // 角色描述,UI界面显示使用
+	    private Long picid;
 	    private String model;
 	    private String des; 
 	  
@@ -37,12 +38,27 @@ public class DeviceType implements Serializable{
 	     public void setId(Long id) {
 	        this.id = id;
 	     }
+	     
+	     public Long getPicid() {
+		        return this.picid;
+		 }
+		    
+		   
+		     public void setPicid(Long id) {
+		        this.picid = id;
+		     }
 	    
 		public String getName(){
 			return this.name;
 		}
 		public void setName(String name){
 			 this.name = name;
+		}
+		public String getModel(){
+			return this.model;
+		}
+		public void setModel(String m){
+			 this.model = m;
 		}
 		
 		public String getDes(){

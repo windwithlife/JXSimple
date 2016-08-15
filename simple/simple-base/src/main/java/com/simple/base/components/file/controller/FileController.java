@@ -38,8 +38,9 @@ import org.apache.commons.io.FileUtils;
 @Controller
 public class FileController {
     
-	//private String fileBasePath = "e:/software/uploads/";
-	private String fileBasePath = "";
+	//private String fileBasePath = "e:/upload/images/";
+	private String fileBasePath = "e:/upload/images/";
+	
 	
 	@Autowired
 	FileUploadService fileservice;
@@ -61,10 +62,11 @@ public class FileController {
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 	   //RequestContextHolder.getRequestAttributes();
                       
-		ServletContext sc = request.getSession().getServletContext();
-		String fileBasePath = sc.getRealPath("/upload") + "/";
+		//ServletContext sc = request.getSession().getServletContext();
+		//String fileBasePath = sc.getRealPath("/upload") + "/";
 		
 		String filePath = fileBasePath + file.getOriginalFilename();
+		String urlPath = "/images/" + file.getOriginalFilename();
 		if (!file.isEmpty()) {
 			try {
 				file.transferTo(new File(filePath));
@@ -81,11 +83,11 @@ public class FileController {
 				return "上传失败," + e.getMessage();
 			}
 			String filename = file.getOriginalFilename();
-			Long id = fileservice.save(filename, filePath, 0);
+			Long id = fileservice.save(filename, urlPath, 0);
 			
 			System.out.println(filePath);
-			String msg =  "file:" + filePath + "[ID:" +  id + "] 上传成功";
-			return "<script>window.parent.uploadSucced('" + msg + "','" + id + "','" +filePath + "');</script>";
+			String msg =  "file:" + urlPath + "[ID:" +  id + "] 上传成功";
+			return "<script>window.parent.uploadSucced('" + msg + "','" + id + "','" +urlPath + "');</script>";
 		} else {
 			 return "<script>window.parent.uploadFailed('" + "文件空文件" + "');</script>";
 		}
