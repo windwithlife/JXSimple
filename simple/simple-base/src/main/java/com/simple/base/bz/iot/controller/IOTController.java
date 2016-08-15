@@ -34,7 +34,6 @@ public class IOTController {
 	@ApiImplicitParam(name = "id", value = "设备类型ID", required = true, dataType = "Integer")
 	@RequestMapping(value = "/deviceTypes/{id}", method=RequestMethod.GET)
 	@ResponseBody
-	// @RequiresPermissions("userInfo:del")//权限管理;
 	public DeviceType channelpage(Long id) {
 		return deviceTypeService.getDeviceTypeById(id);
 		//return "index";

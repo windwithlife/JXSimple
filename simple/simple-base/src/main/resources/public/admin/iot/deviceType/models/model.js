@@ -21,7 +21,7 @@ define(['model'],function(model){
         model.post("/api/v1/User/remove",params,cb);
     };
     var add = function(params,cb){
-        model.post("/api/v1/User/createNew",params,cb);
+        model.post("/iot/deviceTypes/save",params,cb);
     };
     return{
         query:query,

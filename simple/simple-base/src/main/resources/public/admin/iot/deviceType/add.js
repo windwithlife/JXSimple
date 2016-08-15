@@ -34,10 +34,11 @@ define(['simple','text!./templates/add.html','router','homeModel'], function (Si
         saveUpdate: function(){
             //alert("saveUPdate!");
             var params = {};
-            
+            params.pic = $("#add-pic").val();
+            params.desc = $("#add-desc").val();
                 params.name = $("#add-name").val();
             
-                params.age = $("#add-age").val();
+                params.model = $("#add-model").val();
             
             console.log("form data value:" +　JSON.stringify(params));
             homeModel.add(params,function(result){

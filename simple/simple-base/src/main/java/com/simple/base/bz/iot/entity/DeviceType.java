@@ -16,16 +16,18 @@ public class DeviceType implements Serializable{
 	    private Long id; // 编号
 	    private String name; // 角色标识程序中判断使用,如"admin",这个是唯一的:
 	    private String pic; // 角色描述,UI界面显示使用
+	    private String model;
 	    private String des; 
 	  
 	    public DeviceType(){
 	    	this.name = "testfile";
 	    	
 	    }
-	    public DeviceType(String name, String pic, String desc){
+	    public DeviceType(String name, String pic, String desc, String model){
 	    	this.name = name;
 	    	this.pic = pic;
 	    	this.des = desc;
+	    	this.model = model;
 	    }
 	    public Long getId() {
 	        return id;

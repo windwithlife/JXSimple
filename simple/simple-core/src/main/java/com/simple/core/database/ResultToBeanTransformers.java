@@ -13,14 +13,7 @@ import org.hibernate.property.PropertyAccessorFactory;
 import org.hibernate.property.Setter;
 import org.hibernate.transform.ResultTransformer;
 
-/**
- * 澧炲己hibernate澶勭悊鍘熺敓sql杩斿洖缁撴灉鐨勮兘鍔�,鑷姩鏍规嵁鏁版嵁搴撳垪鍚嶈浆鎹㈠埌瀵硅薄鐨凚ean瀵硅薄涓�
- * 
- * 娉ㄦ剰锛� 鏁版嵁搴撶殑瀛楁闇�瑕佸拰bean瀵硅薄灞炴�у悕涓�鑷存垨鑰呮槸椹煎嘲鏍煎紡
- * 
- * @author hfren
- * 
- */
+
 public class ResultToBeanTransformers implements ResultTransformer, Serializable {
 
 	private static final long serialVersionUID = -1533163399071591329L;

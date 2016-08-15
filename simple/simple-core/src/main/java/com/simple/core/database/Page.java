@@ -11,14 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-/**
- * 涓庡叿浣揙RM瀹炵幇鏃犲叧鐨勫垎椤靛弬鏁板強鏌ヨ缁撴灉灏佽.
- * 
- * 娉ㄦ剰鎵�鏈夊簭鍙蜂粠1寮�濮�.
- * 
- * @param <T>
- *            Page涓殑璁板綍绫诲瀷.
- */
+
 public class Page<T> {
 
 	public static final String ASC = "asc";

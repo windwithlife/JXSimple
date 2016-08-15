@@ -164,7 +164,7 @@ public class DAOImpl<T extends Object> extends HibernateDaoSupport implements DA
 			return getHibernateTemplate().get(cls, id);
 		}
 		catch (DataAccessException e) {
-			log.error("鏌ユ壘鎸囧畾ID瀹炰綋寮傚父锛孖D锛�" + id);
+			log.error("" + id);
 			throw e;
 		}
 	}
