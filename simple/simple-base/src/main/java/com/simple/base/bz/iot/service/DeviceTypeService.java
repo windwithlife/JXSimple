@@ -21,4 +21,7 @@ public class DeviceTypeService {
 	public DeviceType save(DeviceType dt){
 		return this.deviceDao.save(dt);
 	}
+	public void remove(Long id){
+		this.deviceDao.delete(id);
+	}
 }

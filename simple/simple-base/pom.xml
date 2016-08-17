@@ -66,11 +66,11 @@
 			<artifactId>simple-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<exclusions>
-  <exclusion>
-            <groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-  </exclusion>
-</exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -146,6 +146,17 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.4.3</version>
 		</dependency>
 	</dependencies>
 

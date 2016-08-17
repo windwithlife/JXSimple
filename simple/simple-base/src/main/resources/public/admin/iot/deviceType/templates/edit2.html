@@ -9,22 +9,25 @@
                 <div class="box-body">
 
                     
-
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">编号</label>
+                        <input type="hidden" value ="<%=data.id%>" class="form-control" id="save-id" placeholder="Enter email">
+                    </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">设备型号</label>
-                        <input type="text" value ="AH-001" class="form-control" id="add-model" placeholder="Enter MOdel">
+                        <input type="text" value ="<%=data.model%>" class="form-control" id="add-model" placeholder="Enter MOdel">
                     </div>
                     
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">设备名称</label>
-                        <input type="text" value ="空调" class="form-control" id="add-name" placeholder="Enter Name">
+                        <input type="text" value ="<%=data.name%>" class="form-control" id="add-name" placeholder="Enter Name">
                     </div>
                     
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">描述</label>
-                        <input type="text" value ="设备描述" class="form-control" id="add-desc" placeholder="Enter Description">
+                        <input type="text" value ="<%=data.des%>" class="form-control" id="add-desc" placeholder="Enter Description">
                     </div>
                     
 
@@ -32,7 +35,7 @@
 
                     <div class="form-group">
 						 <label for="exampleInputEmail1">设备图片</label>
-                      	 <input type="text" value ="test.png" class="form-control" id="add-pic" placeholder="Enter Image" />
+                      	 <input type="text" value ="<%=data.pic%>" class="form-control" id="add-pic" placeholder="Enter Image" />
 	                     <img style='display:none' name="pic" id="pic" alt="No Image!" src="" />
                     </div>
                     <div class="form-group">
@@ -53,7 +56,7 @@
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button class="btn btn-primary btn-saveAddNew">保存修改</button>
+                    <button class="btn btn-primary btn-saveUpdate">保存修改</button>
                 </div>
             </div>
         </div><!-- /.box -->

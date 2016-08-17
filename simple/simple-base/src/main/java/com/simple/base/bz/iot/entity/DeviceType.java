@@ -76,6 +76,6 @@ public class DeviceType implements Serializable{
 	     
 	    @Override
 	    public String toString() {
-	       return "SysRole [id=" + id + ", name=" + name + ", pic=" + pic + ", desc=" + des + "]";
+	       return "DeviceType DATA: [id=" + id + ", name=" + name + ", pic=" + pic + ", desc=" + des + "]";
 	    }
 }

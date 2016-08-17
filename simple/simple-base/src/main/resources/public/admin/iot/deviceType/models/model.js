@@ -6,19 +6,19 @@ define(['model'],function(model){
         url: "/api/v1/pages/getPageHomeInfo"
     });
     var query = function(cb){
-        model.get("/autoapi/deviceTypes/",{},cb);
+        model.get("/iot/deviceTypes/",{},cb);
     };
     var queryByParams = function(params, cb){
         model.get("/api/v1/User/query",params,cb);
     };
     var queryById  = function(params,cb){
-        model.get("/api/v1/User/queryById",params, cb);
+        model.get("/iot/deviceTypes/"+ params.id,params, cb);
     };
     var update = function(params,cb){
-        model.post("/api/v1/User/update",params,cb);
+        model.post("/iot/deviceTypes/save",params,cb);
     };
     var remove = function(params,cb){
-        model.post("/api/v1/User/remove",params,cb);
+        model.post("/iot/deviceTypes/remove/" + params.id, params,cb);
     };
     var add = function(params,cb){
         model.post("/iot/deviceTypes/save",params,cb);

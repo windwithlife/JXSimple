@@ -37,9 +37,8 @@ define(['simple','text!./templates/add.html','router','homeModel'], function (Si
             params.picid = $("#add-pic-id").val();
             params.pic = $("#add-pic").val();
             params.des = $("#add-desc").val();
-                params.name = $("#add-name").val();
-            
-                params.model = $("#add-model").val();
+            params.name = $("#add-name").val();
+            params.model = $("#add-model").val();
             
             console.log("form data value:" +　JSON.stringify(params));
             homeModel.add(params,function(result){

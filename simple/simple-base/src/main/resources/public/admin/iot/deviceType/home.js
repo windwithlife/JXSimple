@@ -31,7 +31,8 @@ define(['simple','text!./templates/mainview.html','router','homeModel'], functio
         onShow: function () {
             var that = this;
             homeModel.query(function(data){
-                var params = {};params.data = data._embedded.deviceTypes;
+                var params = {};params.data = data;
+                console.log(JSON.stringify(params));
                 that.$el.html(that.template(params));
             })
         },
@@ -63,11 +64,12 @@ define(['simple','text!./templates/mainview.html','router','homeModel'], functio
             var removeId = event.currentTarget.dataset.id;
             console.log("row data id:" + removeId);
             var that = this;
-            homeModel.remove({_id: removeId}, function (data) {
-                if (data.success){
+            homeModel.remove({id: removeId}, function (data) {
+                if (data){
                     console.log("successful to remove row");
                     that.onShow().bind(that);
                 }else{
+                	that.onShow().bind(that);
                     console.log("failed to remove row");
                 }
 

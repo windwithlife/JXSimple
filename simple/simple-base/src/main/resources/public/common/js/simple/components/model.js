@@ -9,34 +9,27 @@ define(['simple', 'jquery'], function (Simple, $) {
          "setUrl": function(url){
              this.url = url;
          },
-         "__onResult" : function (data, textStatus){
-             if (textStatus == "success"){
-                 var result = this.onResult(data);
-             }else{
-                 var result = this.onResult(null);
-             }
-         },
-         "add" : function(callback){
-             this.onResult = callback;
-             $.post(this.url,this.params, _.bind(this.__onResult,this),"json");
-         },
          "update" : function(callback){
              this.onResult = callback;
              $.post(this.url,this.params, _.bind(this.__onResult,this),"json");
          },
          "post" : function(url,params,callback){
         	 $.ajaxSetup({  
-        		 contentType: "application/json; charset=utf-8"
+        		 contentType: "application/json; charset=utf-8",
         	    });  
              $.post(url,JSON.stringify(params),function (data, textStatus){
                      if (textStatus == "success"){
                          callback(data);
                      }else{
+                    	 console.log("POST FAILED");
                          callback();
                      }
              }, "json");
          },
          "get": function(url,params,callback){
+        	 $.ajaxSetup({  
+        		 contentType: "application/json; charset=utf-8",
+        	    });
              $.get(url,params,function (data, textStatus){
                  if (textStatus == "success"){
                      callback(data);
