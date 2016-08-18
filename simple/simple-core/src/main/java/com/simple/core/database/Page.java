@@ -54,9 +54,7 @@ public class Page<T> {
 		}
 	}
 
-	/**
-	 * 鍙栧緱鍊掕浆鐨勬帓搴忔柟鍚�
-	 */
+	
 	public String getInverseOrder() {
 		if (order.endsWith(DESC))
 			return ASC;
@@ -64,10 +62,7 @@ public class Page<T> {
 			return DESC;
 	}
 
-	/**
-	 * 椤靛唴鐨勬暟鎹垪琛�.
-	 */
-
+	
 	public List<T> getResult() {
 		return result;
 	}
@@ -84,11 +79,7 @@ public class Page<T> {
 		}
 	}
 
-	/**
-	 * 鎬婚〉鏁�
-	 * 
-	 * @return
-	 */
+	
 	public Integer getTotalPage() {
 		return totalPage;
 	}
@@ -97,9 +88,7 @@ public class Page<T> {
 		this.totalPage = totalPage;
 	}
 
-	/**
-	 * 鎬昏褰曟暟.
-	 */
+
 	public Integer getTotalCount() {
 		return totalCount;
 	}
@@ -108,9 +97,7 @@ public class Page<T> {
 		this.totalCount = totalCount;
 	}
 
-	/**
-	 * 璁＄畻鎬婚〉鏁�.
-	 */
+	
 	public Integer getTotalPages() {
 		if (totalCount == -1)
 			return -1;
@@ -122,16 +109,12 @@ public class Page<T> {
 		return new Integer(count);
 	}
 
-	/**
-	 * 鏄惁杩樻湁涓嬩竴椤�.
-	 */
+	
 	public boolean isHasNext() {
 		return (pageNo + 1 <= getTotalPages());
 	}
 
-	/**
-	 * 杩斿洖涓嬮〉鐨勯〉鍙�,搴忓彿浠�1寮�濮�.
-	 */
+
 	public Integer getNextPage() {
 		if (isHasNext())
 			return pageNo + 1;
@@ -139,16 +122,11 @@ public class Page<T> {
 			return pageNo;
 	}
 
-	/**
-	 * 鏄惁杩樻湁涓婁竴椤�.
-	 */
+	
 	public boolean isHasPre() {
 		return (pageNo - 1 >= 1);
 	}
 
-	/**
-	 * 杩斿洖涓婇〉鐨勯〉鍙�,搴忓彿浠�1寮�濮�.
-	 */
 	public Integer getPrePage() {
 		if (isHasPre())
 			return pageNo - 1;
@@ -156,16 +134,12 @@ public class Page<T> {
 			return pageNo;
 	}
 
-	/**
-	 * 鑾峰緱姣忛〉鐨勮褰曟暟閲�,鏃犻粯璁ゅ��.
-	 */
+	
 	public Integer getPageSize() {
 		return pageSize;
 	}
 
-	/**
-	 * 杩斿洖Page瀵硅薄鑷韩鐨剆etPageSize鍑芥暟,鍙敤浜庤繛缁缃��
-	 */
+	
 	public Page<T> pageSize(final Integer thePageSize) {
 		setPageSize(thePageSize);
 		return this;
@@ -175,23 +149,16 @@ public class Page<T> {
 		this.pageSize = pageSize;
 	}
 
-	/**
-	 * 鏄惁宸茶缃瘡椤电殑璁板綍鏁伴噺.
-	 */
+
 	public boolean isPageSizeSetted() {
 		return pageSize > -1;
 	}
 
-	/**
-	 * 鑾峰緱褰撳墠椤电殑椤靛彿,搴忓彿浠�1寮�濮�,榛樿涓�1.
-	 */
+	
 	public Integer getPageNo() {
 		return pageNo;
 	}
 
-	/**
-	 * 杩斿洖Page瀵硅薄鑷韩鐨剆etPageNo鍑芥暟,鍙敤浜庤繛缁缃��
-	 */
 	public Page<T> pageNo(final String thePageNo) {
 		setPageNo(thePageNo);
 		return this;
@@ -213,9 +180,7 @@ public class Page<T> {
 		}
 	}
 
-	/**
-	 * 鏍规嵁pageNo鍜宲ageSize璁＄畻褰撳墠椤电涓�鏉¤褰曞湪鎬荤粨鏋滈泦涓殑浣嶇疆,搴忓彿浠�0寮�濮�.
-	 */
+	
 	public Integer getFirst() {
 		if (pageNo < 1 || pageSize < 1)
 			return -1;
@@ -223,23 +188,16 @@ public class Page<T> {
 			return ((pageNo - 1) * pageSize + 1);
 	}
 
-	/**
-	 * 鏄惁宸茶缃涓�鏉¤褰曡褰曞湪鎬荤粨鏋滈泦涓殑浣嶇疆.
-	 */
+	
 	public boolean isFirstSetted() {
 		return (pageNo > 0 && pageSize > 0);
 	}
 
-	/**
-	 * 鑾峰緱鎺掑簭瀛楁,鏃犻粯璁ゅ��.
-	 */
 	public String getOrderBy() {
 		return orderBy;
 	}
 
-	/**
-	 * 杩斿洖Page瀵硅薄鑷韩鐨剆etOrderBy鍑芥暟,鍙敤浜庤繛缁缃��
-	 */
+	
 	public Page<T> orderBy(final String theOrderBy) {
 		setOrderBy(theOrderBy);
 		return this;
@@ -249,27 +207,18 @@ public class Page<T> {
 		this.orderBy = orderBy;
 	}
 
-	/**
-	 * 鑾峰緱鎺掑簭鏂瑰悜,榛樿涓篴sc.
-	 */
+	
 	public String getOrder() {
 		return order;
 	}
 
-	/**
-	 * 杩斿洖Page瀵硅薄鑷韩鐨剆etOrder鍑芥暟,鍙敤浜庤繛缁缃��
-	 */
+	
 	public Page<T> order(final String theOrder) {
 		setOrder(theOrder);
 		return this;
 	}
 
-	/**
-	 * 璁剧疆鎺掑簭鏂瑰紡鍚�.
-	 * 
-	 * @param order
-	 *            鍙�夊�间负desc鎴朼sc.
-	 */
+	
 	public void setOrder(String order) {
 		if (ASC.equalsIgnoreCase(order) || DESC.equalsIgnoreCase(order)) {
 			this.order = order.toLowerCase();
@@ -278,16 +227,11 @@ public class Page<T> {
 			throw new IllegalArgumentException("order should be 'desc' or 'asc'");
 	}
 
-	/**
-	 * 鏄惁鑷姩鑾峰彇鎬婚〉鏁�,榛樿涓篺alse. 娉ㄦ剰鏈睘鎬т粎浜巕uery by Criteria鏃舵湁鏁�,query by HQL鏃舵湰灞炴�ф棤鏁�.
-	 */
 	public boolean isAutoCount() {
 		return autoCount;
 	}
 
-	/**
-	 * 杩斿洖Page瀵硅薄鑷韩鐨剆etAutoCount鍑芥暟,鍙敤浜庤繛缁缃��
-	 */
+
 	public Page<T> autoCount(final boolean theAutoCount) {
 		setAutoCount(theAutoCount);
 		return this;

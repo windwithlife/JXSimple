@@ -2,10 +2,14 @@ package com.simple.base.bz.iot.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
    
 @Entity
@@ -16,11 +20,15 @@ public class DeviceItem implements Serializable{
 	    private Long   id; // 编号
 	    private String name; // 角色标识程序中判断使用,如"admin",这个是唯一的:
 	    private int    status; // 角色描述,UI界面显示使用
-	    private Long   typeid;
+	   // private Long   typeid;
 	    private int    temperature;
 	    private int ext1; 
 	    private int ext2; 
 	  
+	    @JoinColumn(name="type_id")//关联user表的字段
+	    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},fetch=FetchType.EAGER,optional=false)
+	    private DeviceType type;
+	    
 	    public DeviceItem(){
 	    	this.name = "testfile";
 	    	
@@ -35,14 +43,23 @@ public class DeviceItem implements Serializable{
 	        this.id = id;
 	     }
 	     
-	     public Long getTypeid() {
+	     public DeviceType getType() {
+		        return this.type;
+		 }
+		    
+		   
+		  public void setType(DeviceType t) {
+		        this.type = t;
+		  }
+	     
+	  /*   public Long getTypeid() {
 		        return this.typeid;
 		 }
 		    
 		   
 		     public void setTypeid(Long id) {
 		        this.typeid = id;
-		     }
+		     }*/
 	    
 		public String getName(){
 			return this.name;

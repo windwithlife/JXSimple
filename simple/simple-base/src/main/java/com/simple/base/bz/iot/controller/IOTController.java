@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.simple.base.bz.iot.entity.DeviceItem;
 import com.simple.base.bz.iot.entity.DeviceType;
 import com.simple.base.bz.iot.entity.IOTResponse;
+import com.simple.base.bz.iot.service.DeviceItemService;
 import com.simple.base.bz.iot.service.DeviceTypeService;
 
 import io.swagger.annotations.ApiImplicitParam;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiOperation;
 public class IOTController {
 	@Autowired
 	DeviceTypeService deviceTypeService;
+	@Autowired
+	DeviceItemService deviceItemService;
 
 	 @ApiOperation(value="设备列表", notes="获取所有设备类型列表")
 	    
@@ -32,6 +36,11 @@ public class IOTController {
 		return deviceTypeService.getDevices();
 	}
 
+	 @RequestMapping(value = "/deviceItems/", method=RequestMethod.GET)
+		@ResponseBody
+		public List<DeviceItem> deviceItems() {
+			return deviceItemService.getDevices();
+		}
 	@ApiOperation(value="设备类型", notes="根据ID取得设备类型")
 	@ApiImplicitParam(name = "id", value = "设备类型ID", required = true, dataType = "Integer")
 	@RequestMapping(value = "/deviceTypes/{id}", method=RequestMethod.GET)

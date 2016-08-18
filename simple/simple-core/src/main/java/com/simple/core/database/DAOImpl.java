@@ -187,7 +187,7 @@ public class DAOImpl<T extends Object> extends HibernateDaoSupport implements DA
 
 	
 	public <V> V loadAsList(final String hql, final Object... values) {
-		// executeWithNativeSession鍦╤ibernate鐨勫欢杩熷姞杞介潪甯告湁鐢�,蹇呴』鍚屼竴涓猻ession
+		
 		return (V) getHibernateTemplate().executeWithNativeSession(new HibernateCallback() {
 			public V doInHibernate(Session s) throws HibernateException, SQLException {
 				Query query = s.createQuery(hql);
