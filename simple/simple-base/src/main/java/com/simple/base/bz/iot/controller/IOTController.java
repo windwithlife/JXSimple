@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,46 +29,61 @@ public class IOTController {
 	@Autowired
 	DeviceItemService deviceItemService;
 
-	 @ApiOperation(value="设备列表", notes="获取所有设备类型列表")
-	    
-	@RequestMapping(value = "/deviceTypes/", method=RequestMethod.GET)
+	@ApiOperation(value = "设备列表", notes = "获取所有设备类型列表")
+
+	@RequestMapping(value = "/deviceTypes/", method = RequestMethod.GET)
 	@ResponseBody
 	public List<DeviceType> deviceTypes() {
 		return deviceTypeService.getDevices();
 	}
 
-	 @RequestMapping(value = "/deviceItems/", method=RequestMethod.GET)
-		@ResponseBody
-		public List<DeviceItem> deviceItems() {
-			return deviceItemService.getDevices();
-		}
-	@ApiOperation(value="设备类型", notes="根据ID取得设备类型")
-	@ApiImplicitParam(name = "id", value = "设备类型ID", required = true, dataType = "Integer")
-	@RequestMapping(value = "/deviceTypes/{id}", method=RequestMethod.GET)
+	@RequestMapping(value = "/deviceItems/", method = RequestMethod.GET)
 	@ResponseBody
-	public DeviceType channelpage(@PathVariable Long id) {
-		return deviceTypeService.getDeviceTypeById(id);
-		//return "index";
+	public List<DeviceItem> deviceItems() {
+		return deviceItemService.getDevices();
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/deviceTypes/remove/{id}", method=RequestMethod.POST)
+	@RequestMapping(value = "/deviceItems/save", method = RequestMethod.POST)
+	public DeviceItem saveItem(@RequestParam("typeId")Long tid, @RequestBody DeviceItem dItem) {
+		System.out.println("input device params: TypeID:" + tid +" DeviceItem:"+ dItem.toString());
+		DeviceType type = deviceTypeService.getDeviceTypeById(tid);
+		dItem.setType(type);
+		DeviceItem result = deviceItemService.save(dItem);
+
+		return result;
+
+	}
+
+	@ApiOperation(value = "设备类型", notes = "根据ID取得设备类型")
+	@ApiImplicitParam(name = "id", value = "设备类型ID", required = true, dataType = "Integer")
+	@RequestMapping(value = "/deviceTypes/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public DeviceType channelpage(@PathVariable Long id) {
+		return deviceTypeService.getDeviceTypeById(id);
+		// return "index";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/deviceTypes/remove/{id}", method = RequestMethod.POST)
 	public IOTResponse remove(@PathVariable Long id) {
 		System.out.println("input device params ID:" + id);
 		deviceTypeService.remove(id);
-		//System.out.println("output device result data:" + result.toString());
-		return new IOTResponse(0,"ok");
-		//return "index";
+		// System.out.println("output device result data:" + result.toString());
+		return new IOTResponse(0, "ok");
+		// return "index";
 	}
+
 	@ResponseBody
-	@RequestMapping(value = "/deviceTypes/save", method=RequestMethod.POST)
+	@RequestMapping(value = "/deviceTypes/save", method = RequestMethod.POST)
 	public DeviceType save(@RequestBody DeviceType dt) {
 		System.out.println("input device params:" + dt.toString());
 		DeviceType result = deviceTypeService.save(dt);
 		System.out.println("output device result data:" + result.toString());
 		return result;
-		//return "index";
+		// return "index";
 	}
+
 	public ModelAndView handleAuthorizationException(Exception e) {
 		System.out.println("A Authorization Failure, MSG: " + e.getMessage());
 
