@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.simple.base.bz.iot.dao.TestDao;
 import com.simple.base.bz.iot.entity.DeviceItem;
 import com.simple.base.bz.iot.entity.DeviceType;
 import com.simple.base.bz.iot.entity.IOTResponse;
@@ -28,6 +29,10 @@ public class IOTController {
 	DeviceTypeService deviceTypeService;
 	@Autowired
 	DeviceItemService deviceItemService;
+	
+	@Autowired
+	TestDao testDao;
+	
 
 	@ApiOperation(value = "设备列表", notes = "获取所有设备类型列表")
 
@@ -101,5 +106,13 @@ public class IOTController {
 		ModelAndView model = new ModelAndView("403");
 		model.addObject("Msg", e.getMessage());
 		return model;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/test/{name}", method = RequestMethod.GET)
+	public List<DeviceType> findTypes(@PathVariable String name) {
+		System.out.println("input device params ID:" + name);
+		return testDao.findByName(name);
+		// System.out.println("output device result data:" + result.toString());
+	
 	}
 }
