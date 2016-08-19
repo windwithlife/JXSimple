@@ -55,6 +55,17 @@ public class IOTController {
 
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/deviceItems/remove/{id}", method = RequestMethod.POST)
+	public IOTResponse removeItem(@PathVariable Long id) {
+		System.out.println("input device params ID:" + id);
+		deviceItemService.remove(id);
+		// System.out.println("output device result data:" + result.toString());
+		return new IOTResponse(0, "ok");
+		// return "index";
+	}
+
+	
 	@ApiOperation(value = "设备类型", notes = "根据ID取得设备类型")
 	@ApiImplicitParam(name = "id", value = "设备类型ID", required = true, dataType = "Integer")
 	@RequestMapping(value = "/deviceTypes/{id}", method = RequestMethod.GET)
