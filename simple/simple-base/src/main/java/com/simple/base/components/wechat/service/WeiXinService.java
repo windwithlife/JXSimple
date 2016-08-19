@@ -18,7 +18,8 @@ import com.simple.base.components.wechat.entity.WxTextResponse;
 import com.simple.base.components.wechat.entity.WxVideoRequest;
 import com.simple.base.components.wechat.entity.WxVoiceRequest;
 import com.simple.base.components.wechat.entity.WxVoiceResponse;
-import com.simple.core.util.xml.SimpleXMLParser;
+import com.simple.base.utils.SimpleXMLParser;
+
 
 
 @Service

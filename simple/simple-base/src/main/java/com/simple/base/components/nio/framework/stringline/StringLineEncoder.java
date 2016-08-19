@@ -1,7 +1,8 @@
 package com.simple.base.components.nio.framework.stringline;
 
 
-import com.simple.core.util.JsonUtils;
+import com.simple.base.utils.JsonUtils;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;

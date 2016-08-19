@@ -1,4 +1,4 @@
-package com.simple.core.util;
+package com.simple.base.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,12 +58,7 @@ public class JsonUtils {
 	
 	
 	
-	/**
-	 * 将json转换成Map，支持实体标签转换成实体类，齐标签，参照本类的static静�?�代码块
-	 * 
-	 * @param result
-	 * @return
-	 */
+
 	@SuppressWarnings("rawtypes")
 	public Map<String, Object> copyJSONObject2Map(JSONObject result) {
 		HashMap<String, Object> data = new HashMap<String, Object>();

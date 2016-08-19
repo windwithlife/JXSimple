@@ -2,7 +2,7 @@ package com.simple.base.components.nio.framework.websocket;
 
 import com.simple.base.components.nio.framework.IConnection;
 import com.simple.base.components.nio.framework.ResponseDTO;
-import com.simple.core.util.SerializationTools;
+import com.simple.base.utils.SerializationTools;
 
 import io.netty.channel.Channel;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;

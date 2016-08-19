@@ -11,7 +11,6 @@ import com.simple.base.components.nio.framework.ConnectionManager;
 import com.simple.base.components.nio.framework.HttpConnection;
 import com.simple.base.components.nio.framework.Request;
 import com.simple.base.components.nio.framework.RequestCachePool;
-import com.simple.core.util.SerializationTools;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

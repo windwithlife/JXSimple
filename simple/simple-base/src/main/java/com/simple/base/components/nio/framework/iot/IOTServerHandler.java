@@ -8,7 +8,7 @@ package com.simple.base.components.nio.framework.iot;
 import com.simple.base.components.nio.framework.ConnectionManager;
 import com.simple.base.components.nio.framework.RequestCachePool;
 import com.simple.base.components.nio.framework.iot.IOTRequest;
-import com.simple.core.util.SerializationTools;
+
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

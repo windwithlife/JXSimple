@@ -4,8 +4,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.simple.base.components.wechat.entity.ResultEntity;
+import com.simple.base.utils.JsonUtils;
 
-import com.simple.core.util.JsonUtils;
+
 
 
 @Service
