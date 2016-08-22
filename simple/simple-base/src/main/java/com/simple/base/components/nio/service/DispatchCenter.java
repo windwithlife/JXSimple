@@ -109,18 +109,19 @@ public class DispatchCenter {
 	
 	private void handleRequest(Request request){
 		try{
-			
+			RequestContext context = new RequestContext(request);
 			String requestCommand = request.getCommand();
 			MappingActionItem item = RequestMap.get(requestCommand);
 			if (null ==item){
 				System.out.println("Could not find relative command handler for COMMAND[" + requestCommand+ "]");
+				context.getResponse().doResponse();
 				return;
 			}
 			System.out.println(item.outputType.getTypeName());
 			Object outputObj = item.outputType.newInstance();;
 			Object inputObj = request.getRequest(item.inputType);
 			
-			RequestContext context = new RequestContext(request);
+			//RequestContext context = new RequestContext(request);
 			
 			if (item.requestContextType != null){
 				item.action.invoke(item.handler, inputObj,outputObj, context);
