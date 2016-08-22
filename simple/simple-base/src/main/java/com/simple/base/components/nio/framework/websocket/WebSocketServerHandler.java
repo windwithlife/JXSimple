@@ -159,9 +159,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 			WebsocketRequest req= new WebsocketRequest(str);
 			req.setChannel(ctx.channel());
 			req.setSession("websocket");
-			//req.setCommand(command + "");
-			//req.setInput(obj);
-			//req.setRequestPath(String.valueOf(command));
+			
 			
 			
 			RequestCachePool.getInstance().pushToPool(req);
@@ -170,8 +168,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 		} else if (frame instanceof BinaryWebSocketFrame) {
 			System.out.println("recieved websocket binary package from:" + ctx.channel().remoteAddress().toString());
 			String str = frame.content().toString();
-			//int command = SerializationTools.getInstance().getCommand(str);
-			//Object obj = SerializationTools.getInstance().transferToObjectByRequestKey(str,command+"");
+			
 			WebsocketRequest req= new WebsocketRequest(str);
 			req.setChannel(ctx.channel());
 			req.setSession("websocket");
@@ -180,8 +177,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 		}else{
 			System.out.println("Exception Data from client");
 			return;
-			//throw new UnsupportedOperationException(String.format(
-			//		"%s frame types not supported", frame.getClass().getName()));
+		
 		}
 
 		
