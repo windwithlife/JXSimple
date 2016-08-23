@@ -17,16 +17,16 @@ public class DeviceStatus implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; // 编号
 	
-	@Column(nullable = true)
+	@Column(columnDefinition="int default 0")
 	private int status; // 角色描述,UI界面显示使用
 	
-	@Column(nullable = true)
+	@Column(columnDefinition="int default 0")
 	private int temperature;
 
 
 	public DeviceStatus() {
-		this.status = -1;
-		this.temperature =-1;
+		this.status = 1;
+		this.temperature =1;
 
 	}
 
