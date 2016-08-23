@@ -18,6 +18,7 @@ import com.simple.base.bz.iot.entity.DeviceStatus;
 import com.simple.base.bz.iot.entity.DeviceType;
 import com.simple.base.bz.iot.entity.IOTResponse;
 import com.simple.base.bz.iot.service.DeviceItemService;
+import com.simple.base.bz.iot.service.DeviceStatusService;
 import com.simple.base.bz.iot.service.DeviceTypeService;
 
 import io.swagger.annotations.ApiImplicitParam;
@@ -31,6 +32,8 @@ public class IOTController {
 	@Autowired
 	DeviceItemService deviceItemService;
 	
+	@Autowired
+	DeviceStatusService statusService;
 	@Autowired
 	TestDao testDao;
 	
@@ -56,7 +59,8 @@ public class IOTController {
 		DeviceType type = deviceTypeService.getDeviceTypeById(tid);
 		dItem.setType(type);
 		DeviceStatus s = new DeviceStatus();
-		dItem.setStatus(s);
+		DeviceStatus rs = statusService.save(s);
+		dItem.setStatus(rs);
 		DeviceItem result = deviceItemService.save(dItem);
          
 		return result;
