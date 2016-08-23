@@ -73,8 +73,14 @@ public class IOTController {
 		}
 		s.setStatus(itemStatus.getStatus());
 		s.setTemperature(itemStatus.getTemperature());
+		item.setStatus(s);
 		DeviceItem result = deviceItemService.save(item);
-		return result.getStatus();
+		if (null != result.getStatus()){
+			return result.getStatus();
+		}else{
+			return s;
+		}
+		
 
 	}
 	@ResponseBody
