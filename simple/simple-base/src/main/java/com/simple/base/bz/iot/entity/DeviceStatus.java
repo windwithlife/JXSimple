@@ -2,7 +2,7 @@ package com.simple.base.bz.iot.entity;
 
 import java.io.Serializable;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -16,13 +16,17 @@ public class DeviceStatus implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; // 编号
+	
+	@Column(nullable = true)
 	private int status; // 角色描述,UI界面显示使用
+	
+	@Column(nullable = true)
 	private int temperature;
 
 
 	public DeviceStatus() {
-		this.status = 0;
-		this.temperature =0;
+		this.status = -1;
+		this.temperature =-1;
 
 	}
 
