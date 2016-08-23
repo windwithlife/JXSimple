@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 @Entity
 public class DeviceItem implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -27,8 +30,10 @@ public class DeviceItem implements Serializable {
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.EAGER, optional = false)
 	private DeviceType type;
 
+	//@JoinColumn(name = "status_id",referencedColumnName="ref_id") // 关联device_status表的字段
 	@JoinColumn(name = "status_id") // 关联device_status表的字段
-	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.EAGER, optional = false)
+	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@NotFound(action=NotFoundAction.IGNORE)
 	private DeviceStatus status;
 	
 	public DeviceItem() {

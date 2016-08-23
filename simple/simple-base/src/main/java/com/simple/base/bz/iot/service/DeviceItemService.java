@@ -14,9 +14,6 @@ public class DeviceItemService {
 	DeviceItemRepository deviceItemDao;
 	public List<DeviceItem> getItems(){
 		List<DeviceItem> items = deviceItemDao.findAll();
-		///for(DeviceItem tmp:items){
-		//	System.out.println(tmp.getType().getName());
-		//}
 		return items;
 	}
 	public DeviceItem getItemById(Long id){
