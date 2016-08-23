@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class DeviceItem implements Serializable {
@@ -18,15 +19,18 @@ public class DeviceItem implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; // 编号
 	private String name; // 角色标识程序中判断使用,如"admin",这个是唯一的:
-	private int status; // 角色描述,UI界面显示使用
+	//private int status; // 角色描述,UI界面显示使用
 	private String deviceCode;
 	private int temperature;
-	private int ext1;
 
-	@JoinColumn(name = "type_id") // 关联user表的字段
+	@JoinColumn(name = "type_id") // 关联device_type表的字段
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.EAGER, optional = false)
 	private DeviceType type;
 
+	@JoinColumn(name = "status_id") // 关联device_status表的字段
+	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.EAGER, optional = false)
+	private DeviceStatus status;
+	
 	public DeviceItem() {
 		this.name = "testfile";
 
@@ -64,11 +68,11 @@ public class DeviceItem implements Serializable {
 		this.deviceCode = code;
 	}
 
-	public int getStatus() {
+	public DeviceStatus getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(int s) {
+	public void setStatus(DeviceStatus s) {
 		this.status = s;
 	}
 

@@ -12,14 +12,14 @@ import com.simple.base.bz.iot.entity.DeviceItem;
 public class DeviceItemService {
 	@Autowired
 	DeviceItemRepository deviceItemDao;
-	public List<DeviceItem> getDevices(){
+	public List<DeviceItem> getItems(){
 		List<DeviceItem> items = deviceItemDao.findAll();
 		///for(DeviceItem tmp:items){
 		//	System.out.println(tmp.getType().getName());
 		//}
 		return items;
 	}
-	public DeviceItem getDeviceTypeById(Long id){
+	public DeviceItem getItemById(Long id){
 		return deviceItemDao.findOne(id);
 	}
 	public DeviceItem save(DeviceItem dt){

@@ -1,6 +1,6 @@
 package com.simple.base.bz.iot.entity;
 
-import java.io.Serializable;
+
 
 public class IOTResponse{
 	

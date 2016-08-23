@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.simple.base.bz.iot.dao.TestDao;
 import com.simple.base.bz.iot.entity.DeviceItem;
+import com.simple.base.bz.iot.entity.DeviceStatus;
 import com.simple.base.bz.iot.entity.DeviceType;
 import com.simple.base.bz.iot.entity.IOTResponse;
 import com.simple.base.bz.iot.service.DeviceItemService;
@@ -45,7 +46,7 @@ public class IOTController {
 	@RequestMapping(value = "/deviceItems/", method = RequestMethod.GET)
 	@ResponseBody
 	public List<DeviceItem> deviceItems() {
-		return deviceItemService.getDevices();
+		return deviceItemService.getItems();
 	}
 
 	@ResponseBody
@@ -54,9 +55,41 @@ public class IOTController {
 		System.out.println("input device params: TypeID:" + tid +" DeviceItem:"+ dItem.toString());
 		DeviceType type = deviceTypeService.getDeviceTypeById(tid);
 		dItem.setType(type);
+		DeviceStatus s = new DeviceStatus();
+		dItem.setStatus(s);
 		DeviceItem result = deviceItemService.save(dItem);
-
+         
 		return result;
+
+	}
+	@ResponseBody
+	@RequestMapping(value = "/deviceItems/saveStatus", method = RequestMethod.POST)
+	public DeviceStatus saveItemStatus(@RequestParam("itemId")Long itemId, @RequestBody DeviceStatus itemStatus) {
+		System.out.println("input device params: ID:" + itemId +" DeviceStatus:"+ itemStatus.toString());
+		DeviceItem item= deviceItemService.getItemById(itemId);
+		DeviceStatus s = item.getStatus();
+		if (null == s){
+			s = new DeviceStatus();
+		}
+		s.setStatus(itemStatus.getStatus());
+		s.setTemperature(itemStatus.getTemperature());
+		DeviceItem result = deviceItemService.save(item);
+		return result.getStatus();
+
+	}
+	@ResponseBody
+	@RequestMapping(value = "/deviceItems/getStatus", method = RequestMethod.GET)
+	public DeviceStatus getItemStatus(@RequestParam("itemId")Long itemId) {
+		System.out.println("input device params: ID:" + itemId);
+		DeviceItem item= deviceItemService.getItemById(itemId);
+		if (null == item){
+			return new DeviceStatus();
+		}
+		DeviceStatus s = item.getStatus();
+		if (null == s){
+			s = new DeviceStatus();
+		}
+		return s;
 
 	}
 
