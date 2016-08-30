@@ -1,4 +1,4 @@
-FROM docker.io/lwieske/java-8
+FROM docker.io/java
 VOLUME /tmp
 ADD simple-base-0.0.1-SNAPSHOT.jar app.jar
 RUN bash -c 'touch /app.jar'
