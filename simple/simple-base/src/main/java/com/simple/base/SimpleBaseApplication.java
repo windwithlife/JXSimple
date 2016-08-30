@@ -8,6 +8,7 @@ import org.springframework.boot.context.embedded.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import com.google.common.collect.FluentIterable;
 
@@ -16,6 +17,7 @@ import nz.net.ultraq.thymeleaf.LayoutDialect;
 @Configuration
 @EnableJpaAuditing
 @SpringBootApplication
+@EnableRedisHttpSession
 public class SimpleBaseApplication {
 
 	  @Bean
