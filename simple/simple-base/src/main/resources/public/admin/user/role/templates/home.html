@@ -47,7 +47,7 @@
             </thead>
             <tbody>
 <%_.each(data,function(v,k){
-            if (v.permissions){
+            if (v.permissions && (v.permissions.length > 0)){
 				var permission = v.permissions[0].permission;             
 }
             %>
