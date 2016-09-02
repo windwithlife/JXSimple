@@ -47,7 +47,9 @@
             </thead>
             <tbody>
 <%_.each(data,function(v,k){
-
+            if (v.permissions){
+				var permission = v.permissions[0].permission;             
+}
             %>
 
 
@@ -61,7 +63,7 @@
                 
                 <td><%-v.available%></td>
                 
-                <td><%-v.permissions[0]。permission%></td>
+                <td><%-permission%></td>
                
                 
                 <td>
