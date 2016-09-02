@@ -34,6 +34,14 @@ public class AdminController  implements EnvironmentAware {
 	       return "index";
 	   }
 	 
+	   @RequestMapping(value= "/user/user", method=RequestMethod.GET)
+	    public String userHome(){
+	       return "index";
+	    }
+	   @RequestMapping(value= "/user/role", method=RequestMethod.GET)
+	    public String userRoleHome(){
+	       return "index";
+	    }
 	   @RequestMapping(value= "/iot/deviceType", method=RequestMethod.GET)
 	    //@RequiresPermissions("userInfo:del")//权限管理;
 	    public String channelpage(){
