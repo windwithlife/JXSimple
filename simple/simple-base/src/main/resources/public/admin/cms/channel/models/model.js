@@ -20,7 +20,6 @@ define(['model'],function(model){
     return{
         query:query,
         queryById:queryById,
-        queryByParams:queryByParams,
         update:update,
         remove:remove,
         add:add,
