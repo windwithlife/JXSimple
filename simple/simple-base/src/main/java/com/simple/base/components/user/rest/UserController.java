@@ -36,7 +36,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/adminUsers/",method=RequestMethod.GET)
-	public List<User> getAdminUsers(@RequestBody User user){
+	public List<User> getAdminUsers(){
 		return userService.getUsers();
 	}
 	@RequestMapping(value="/adminUsers/query/{id}",method=RequestMethod.GET)
