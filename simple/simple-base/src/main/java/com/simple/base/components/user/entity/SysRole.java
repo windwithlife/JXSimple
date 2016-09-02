@@ -26,16 +26,16 @@ public class SysRole implements Serializable{
     private List<SysPermission> permissions;
    
     // 用户 - 角色关系定义;
-    @ManyToMany
-    @JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
-    private List<User> userInfos;// 一个角色对应多个用户
+    //@ManyToMany
+    //@JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
+   // private List<User> userInfos;// 一个角色对应多个用户
    
-    public List<User> getUserInfos() {
-       return userInfos;
-    }
-    public void setUserInfos(List<User> userInfos) {
-       this.userInfos = userInfos;
-    }
+   // public List<User> getUserInfos() {
+   //    return userInfos;
+   // }
+   // public void setUserInfos(List<User> userInfos) {
+    //   this.userInfos = userInfos;
+  //  }
     public Long getId() {
        return id;
     }
