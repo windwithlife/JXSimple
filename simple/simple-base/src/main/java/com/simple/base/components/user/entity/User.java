@@ -1,5 +1,6 @@
 package com.simple.base.components.user.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,7 +19,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.simple.base.components.shiro.entity.SysRole;
 
 @Entity
-public class User {
+public class User implements Serializable{
+
+	
+	private static final long serialVersionUID = -2187415914855805012L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
