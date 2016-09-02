@@ -17,7 +17,7 @@ import com.simple.base.components.user.entity.User;
 import com.simple.base.components.user.service.UserService;
 
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -55,7 +55,7 @@ public class UserController {
     }
     
    
-	@RequestMapping(value="/login",method=RequestMethod.POST)
+	@RequestMapping(value="/shiro/login",method=RequestMethod.POST)
     public String login(HttpServletRequest request, Map<String, Object> map) throws Exception {
        System.out.println("HomeController.login()");
        // 登录失败从request中获取shiro处理的异常信息。
