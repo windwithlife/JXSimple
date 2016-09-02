@@ -35,11 +35,11 @@ public class UserController {
 		return userService.save(user);
 	}
 	
-	@RequestMapping(value="/adminUsers/",method=RequestMethod.POST)
+	@RequestMapping(value="/adminUsers/",method=RequestMethod.GET)
 	public List<User> getAdminUsers(@RequestBody User user){
 		return userService.getUsers();
 	}
-	@RequestMapping(value="/adminUsers/query/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="/adminUsers/query/{id}",method=RequestMethod.GET)
 	public User getAdminUserById(@RequestParam Long id){
 		//return userService.getUsers();
 		return null;
