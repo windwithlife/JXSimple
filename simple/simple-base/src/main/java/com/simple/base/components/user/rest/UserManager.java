@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/userManager/")
+@RequestMapping("/user/test")
 public class UserManager {
 
 	/* @ExceptionHandler(value = Exception.class)

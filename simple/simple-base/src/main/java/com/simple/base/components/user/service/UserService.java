@@ -1,6 +1,7 @@
 package com.simple.base.components.user.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -37,7 +38,9 @@ public class UserService {
 		User savedUser = userDao.saveAndFlush(user);
 		return savedUser;
 	}
-	
+	public List<User> getUsers(){
+		return userDao.findAll();
+	}
 	public User save(User user) {
 		User savedUser = userDao.saveAndFlush(user);
 		return savedUser;

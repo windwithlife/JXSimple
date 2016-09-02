@@ -1,5 +1,6 @@
 package com.simple.base.components.user.rest;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import com.simple.base.components.user.entity.User;
 import com.simple.base.components.user.service.UserService;
 
 @Controller
-//@RequestMapping("/user")
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -29,11 +30,19 @@ public class UserController {
 		return userService.register(user);
 	}
 	
-	@RequestMapping(value="/addAdinUser",method=RequestMethod.POST)
+	@RequestMapping(value="/addAdminUser",method=RequestMethod.POST)
 	public User addUser(@RequestBody User user){
 		return userService.save(user);
 	}
-
+	
+	@RequestMapping(value="/AdminUsers/",method=RequestMethod.POST)
+	public List<User> getAdminUsers(@RequestBody User user){
+		return userService.getUsers();
+	}
+	@RequestMapping(value="/Users/",method=RequestMethod.POST)
+	public List<User> getUsers(@RequestBody User user){
+		return userService.getUsers();
+	}
 	@RequestMapping(value={"/","/index"},method=RequestMethod.GET)
     public String index(){
        return "index";
