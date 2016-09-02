@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.simple.base.components.user.dao.UserRoleRepository;
+import com.simple.base.components.user.entity.SysRole;
 import com.simple.base.components.user.entity.User;
 import com.simple.base.components.user.service.UserService;
 
@@ -24,6 +26,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	UserRoleRepository roleDao;
 	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public User register(@RequestBody User user){
@@ -42,6 +47,26 @@ public class UserController {
 	public List<User> getAdminUsers(){
 		return userService.getUsers();
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/roles/",method=RequestMethod.GET)
+	public List<SysRole> getRoles(){
+		return roleDao.findAll();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/roles/save",method=RequestMethod.POST)
+	public SysRole addRole(@RequestBody SysRole role){
+		return roleDao.save(role);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/roles/query/{id}",method=RequestMethod.GET)
+	public SysRole getRoleById(@RequestParam Long id){
+		//return userService.getUsers();
+		return roleDao.findById(id);
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="/adminUsers/query/{id}",method=RequestMethod.GET)
 	public User getAdminUserById(@RequestParam Long id){

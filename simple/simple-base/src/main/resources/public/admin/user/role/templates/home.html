@@ -33,13 +33,13 @@
                     <input type="checkbox" class ="checked-all-unchecked"/></td>
 
                 
-                <td>设备名称</td>
-                <td>设备型号</td>
+                <td>角色名称</td>
+                <td>角色描述</td>
                
-                <td>设备描述</td>
+                <td>角色状态</td>
                
-                <td>设备图片路径</td>
-                <td>设备图片预览</td>
+                <td>角色权限</td>
+                
                
 
                 <td class="col-lg-3">操作</td>
@@ -56,13 +56,13 @@
                     <input type="checkbox" name="checkbox" value="<%=v.id%>"/></td>
 
                 
-                <td><%-v.name%></td>
-                <td><%-v.model%></td>
+                <td><%-v.role%></td>
+                <td><%-v.description%></td>
                 
-                <td><%-v.des%></td>
+                <td><%-v.available%></td>
                 
-                <td><%-v.pic%></td>
-                <td><img src="<%-v.pic%>" style="heigth:50px;width:50px" /></td>
+                <td><%-v.permissions[0]。permission%></td>
+               
                 
                 <td>
 

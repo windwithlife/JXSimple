@@ -2,7 +2,7 @@
  * Created by zhangyq on 2015/9/15.
  */
 
-define(['simple','text!./templates/mainview.html','router','homeModel'], function (Simple,tpl,router,homeModel) {
+define(['simple','text!./templates/home.html','router','homeModel'], function (Simple,tpl,router,homeModel) {
 
     var page =Simple.PageView.extend({
         //model : new PersonModel(),

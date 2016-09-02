@@ -29,7 +29,8 @@ public class User implements Serializable{
 
 	private Long userId;
 	private String username;
-	//private String name;
+	private String name;
+	private String email;
 	private String password;
 	private String salt;// 加密密码的盐
 	private String address;
@@ -70,7 +71,7 @@ public class User implements Serializable{
 		this.state = status;
 	}
 
-	private String email;
+	
 
 	public User(Long uid, String name) {
 		this.userId = uid;
