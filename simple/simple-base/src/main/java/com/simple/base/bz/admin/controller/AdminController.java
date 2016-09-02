@@ -28,7 +28,11 @@ public class AdminController  implements EnvironmentAware {
         this.port = s;
     }
 	 
-	
+	   @RequestMapping(value= "/iot/deviceType", method=RequestMethod.GET)
+	    //@RequiresPermissions("userInfo:del")//权限管理;
+	    public String channelpage(){
+	       return "index";
+	    }
 	   @RequestMapping(value= "/iot", method=RequestMethod.GET)
 	    public String rootpage(){
 	       return "index";
@@ -42,11 +46,15 @@ public class AdminController  implements EnvironmentAware {
 	    public String userRoleHome(){
 	       return "index";
 	    }
-	   @RequestMapping(value= "/iot/deviceType", method=RequestMethod.GET)
-	    //@RequiresPermissions("userInfo:del")//权限管理;
-	    public String channelpage(){
+	   @RequestMapping(value= "/cms/channel", method=RequestMethod.GET)
+	    public String cmsChannelHome(){
 	       return "index";
 	    }
+	   @RequestMapping(value= "/cms/content", method=RequestMethod.GET)
+	    public String cmsContentHome(){
+	       return "index";
+	    }
+	  
 	   @RequestMapping(value= "/analyse/{side}", method=RequestMethod.GET)
 	    //@RequiresPermissions("userInfo:del")//权限管理;
 	    public ModelAndView manageAndAnalysis(@PathVariable String side){
