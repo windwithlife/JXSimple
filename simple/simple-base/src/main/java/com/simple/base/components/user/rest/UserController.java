@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simple.base.components.user.entity.User;
 import com.simple.base.components.user.service.UserService;
@@ -30,20 +31,24 @@ public class UserController {
 		return userService.register(user);
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/adminUsers/save",method=RequestMethod.POST)
 	public User addUser(@RequestBody User user){
 		return userService.save(user);
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/adminUsers/",method=RequestMethod.GET)
 	public List<User> getAdminUsers(){
 		return userService.getUsers();
 	}
+	@ResponseBody
 	@RequestMapping(value="/adminUsers/query/{id}",method=RequestMethod.GET)
 	public User getAdminUserById(@RequestParam Long id){
 		//return userService.getUsers();
 		return null;
 	}
+	@ResponseBody
 	@RequestMapping(value="/users/",method=RequestMethod.POST)
 	public List<User> getUsers(@RequestBody User user){
 		return userService.getUsers();
