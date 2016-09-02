@@ -3,19 +3,19 @@
  */
 define(['model'],function(model){
     var query = function(cb){
-        model.get("/iot/deviceTypes/",{},cb);
+        model.get("/user/adminUsers/",{},cb);
     };
     var queryById  = function(params,cb){
-        model.get("/iot/deviceTypes/"+ params.id,params, cb);
+        model.get("/user/adminUsers/query/"+ params.id,params, cb);
     };
     var update = function(params,cb){
-        model.post("/iot/deviceTypes/save",params,cb);
+        model.post("/user/adminUsers/save",params,cb);
     };
     var remove = function(params,cb){
         model.post("/iot/deviceTypes/remove/" + params.id, params,cb);
     };
     var add = function(params,cb){
-        model.post("/iot/deviceTypes/save",params,cb);
+        model.post("/user/adminUsers/save",params,cb);
     };
     return{
         query:query,

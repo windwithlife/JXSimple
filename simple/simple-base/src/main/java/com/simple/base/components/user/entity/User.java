@@ -29,7 +29,7 @@ public class User implements Serializable{
 
 	private Long userId;
 	private String username;
-	private String name;
+	//private String name;
 	private String password;
 	private String salt;// 加密密码的盐
 	private String address;
