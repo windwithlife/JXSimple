@@ -11,23 +11,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import com.simple.base.components.user.entity.User;
 import com.simple.base.components.user.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
 	UserService userService;
 	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public long register(@RequestBody User user){
-		//nioServer.startServer();
+	public User register(@RequestBody User user){
+	
 		return userService.register(user);
 	}
 	
+	@RequestMapping(value="/addAdinUser",method=RequestMethod.POST)
+	public User addUser(@RequestBody User user){
+		return userService.save(user);
+	}
 
 	@RequestMapping(value={"/","/index"},method=RequestMethod.GET)
     public String index(){

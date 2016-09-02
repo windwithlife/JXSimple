@@ -1,4 +1,4 @@
-package com.simple.base.components.shiro.entity;
+package com.simple.base.components.user.entity;
 
 import java.io.Serializable;
 import java.util.List;

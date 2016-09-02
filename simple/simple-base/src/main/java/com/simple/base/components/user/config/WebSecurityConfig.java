@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 			.antMatchers("/css/**", "/index","/img","/js").permitAll()
 			.antMatchers("/admin/**").authenticated();
-		http.formLogin().loginPage("/login").failureUrl("/error");
+		http.formLogin().loginPage("/user/login").failureUrl("/error");
 		http.logout().permitAll();
 		http.csrf().disable(); //permist csrf.
 		http.headers().frameOptions().sameOrigin();//Permit cross origin frame source display.

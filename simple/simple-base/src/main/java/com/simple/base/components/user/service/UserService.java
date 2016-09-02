@@ -1,31 +1,47 @@
 package com.simple.base.components.user.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import com.simple.base.components.user.dao.UserInfoRepository;
 import com.simple.base.components.user.dao.UserRepository;
+import com.simple.base.components.user.dao.UserRoleRepository;
+import com.simple.base.components.user.entity.SysRole;
 import com.simple.base.components.user.entity.User;
 import com.simple.base.components.user.entity.UserInfo;
 
 @Service
 public class UserService {
+	private final Long DEFAULT_ROLE = 2L;
 	@Autowired
 	private UserRepository userDao;
 
 	@Autowired
 	private UserInfoRepository userInfoDao;
 	
+	@Autowired
+	private UserRoleRepository userRoleDao;
+	
 	public User findByUsername(String username) {
 	       System.out.println("UserInfoServiceImpl.findByUsername()");
 	       return userDao.findByUsername(username);
    }
-	public long register(User user) {
-
+	public User register(User user) {
+		ArrayList<SysRole> roleList = new ArrayList<SysRole>();
+		SysRole defaultRole = userRoleDao.findById(DEFAULT_ROLE);
+		roleList.add(defaultRole);
+		user.setRoleList(roleList);
 		User savedUser = userDao.saveAndFlush(user);
-		return savedUser.getId();
+		return savedUser;
 	}
 	
+	public User save(User user) {
+		User savedUser = userDao.saveAndFlush(user);
+		return savedUser;
+	}
 	public int login(User user){
 		User matchUser = userDao.findByIdAndPassword(user.getId(),user.getPassword());
 		if (null != matchUser){

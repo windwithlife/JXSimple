@@ -1,4 +1,4 @@
-package com.simple.base.components.shiro.entity;
+package com.simple.base.components.user.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
-import com.simple.base.components.user.entity.User;
 
 @Entity
 public class SysRole implements Serializable{

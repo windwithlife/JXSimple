@@ -29,9 +29,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.simple.base.components.shiro.entity.SysPermission;
-import com.simple.base.components.shiro.entity.SysRole;
 import com.simple.base.components.user.dao.UserRepository;
+import com.simple.base.components.user.entity.SysPermission;
+import com.simple.base.components.user.entity.SysRole;
 import com.simple.base.components.user.entity.User;
 
 import antlr.collections.List;

@@ -11,8 +11,8 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.simple.base.components.shiro.entity.SysPermission;
-import com.simple.base.components.shiro.entity.SysRole;
+import com.simple.base.components.user.entity.SysPermission;
+import com.simple.base.components.user.entity.SysRole;
 import com.simple.base.components.user.entity.User;
 import com.simple.base.components.user.service.UserService;
 

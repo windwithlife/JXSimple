@@ -16,7 +16,6 @@ import javax.persistence.ManyToMany;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.simple.base.components.shiro.entity.SysRole;
 
 @Entity
 public class User implements Serializable{
