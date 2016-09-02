@@ -5,7 +5,7 @@
 (function(){
     require.config({
         paths: {
-            "homeModel": "/admin/iot/deviceType/models/model"
+            "homeModel": "/admin/cms/content/models/model"
         },
     });
 
