@@ -5,6 +5,9 @@ define(['model'],function(model){
     var query = function(cb){
         model.get("/iot/deviceTypes/",{},cb);
     };
+    var queryByParams = function(params, cb){
+        model.get("/api/v1/User/query",params,cb);
+    };
     var queryById  = function(params,cb){
         model.get("/iot/deviceTypes/"+ params.id,params, cb);
     };
