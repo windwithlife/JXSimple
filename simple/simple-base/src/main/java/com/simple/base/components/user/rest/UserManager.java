@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/user/test")
+//@RequestMapping("/user/test")
 public class UserManager {
 
 	/* @ExceptionHandler(value = Exception.class)
@@ -36,6 +36,10 @@ public class UserManager {
 		 System.out.println(" Authentication Failure, MSG : " + e.getMessage());
 		 return "login";
 	 }
+	 @RequestMapping(value="/login",method=RequestMethod.GET)
+	    public String login(){
+	       return"login";
+	    }
     /**
      * 用户查询.
      * @return
