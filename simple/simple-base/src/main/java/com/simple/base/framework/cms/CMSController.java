@@ -1,4 +1,4 @@
-package com.simple.base.bz.cms.controller;
+package com.simple.base.framework.cms;
 
 import java.util.List;
 

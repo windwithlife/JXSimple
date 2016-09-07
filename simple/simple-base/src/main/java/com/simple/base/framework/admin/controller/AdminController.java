@@ -1,4 +1,4 @@
-package com.simple.base.bz.admin.controller;
+package com.simple.base.framework.admin.controller;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.AuthorizationException;
