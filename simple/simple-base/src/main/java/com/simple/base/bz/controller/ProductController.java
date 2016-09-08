@@ -81,7 +81,12 @@ public class ProductController {
 
 
 
-   
+    @ResponseBody
+   	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+   	public Long remove(@PathVariable Long id) {
+		service.remove(id);
+        return id;
+    }
     @ResponseBody
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.POST)
     public Long removeById(@PathVariable Long id) {
