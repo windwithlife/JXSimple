@@ -9,6 +9,9 @@ require(['global_require_config'], function (g) {
    require(['urlparser','params','simple','jquery'], function (urlparser,params,simple,$) {
       
 	   var resPath = $("#entryport-js").data("res-path");
+	   if (resPath[resPath.length-1] == '/'){
+		   resPath = resPath.substr(0,resPath.length-1);
+	   }
        resFullPath = resPath + urlparser.getPath();
        
        console.log("resource path is" + resFullPath);
