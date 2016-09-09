@@ -2,6 +2,6 @@
   "name": "java",
   "version": "0.0.1",
   "dependencies": {
-    "simple-coder": "^0.4.4"
+    "simple-coder": "^0.5.35"
   }
 }
