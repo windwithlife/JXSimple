@@ -11,11 +11,10 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 	private String uploadPath;
 	
 	@Override
-	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	      registry.addResourceHandler("/images/**").addResourceLocations("file:" + uploadPath);
-	      registry.addResourceHandler("/**").addResourceLocations("classpath:/test/").addResourceLocations("classpath:/web/").addResourceLocations("classpath:/public/").addResourceLocations("classpath:/static/");
-	      //registry.addResourceHandler("/**").addResourceLocations("classpath:/web/views/");
-	        super.addResourceHandlers(registry);
-	    }
+	      registry.addResourceHandler("/**").addResourceLocations("classpath:/public/charisma/").addResourceLocations("classpath:/autoweb/").addResourceLocations("classpath:/public/").addResourceLocations("classpath:/static/");
+	      super.addResourceHandlers(registry);
+	}
 
 }
