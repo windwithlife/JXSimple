@@ -8,50 +8,59 @@
                 <div class="box-body">
 
                     
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">编号</label>
-                        <input type="text" value ="" class="form-control" id="add-id" placeholder="Enter email">
-                    </div>
-                    
-
                     <div class="form-group">
                         <label for="exampleInputEmail1">名称</label>
                         <input type="text" value ="" class="form-control" id="add-name" placeholder="Enter email">
                     </div>
                     
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">性别</label>
-                        <input type="text" value ="" class="form-control" id="add-sex" placeholder="Enter email">
-                    </div>
-                    
-
                     <div class="form-group">
                         <label for="exampleInputEmail1">年龄</label>
                         <input type="text" value ="" class="form-control" id="add-age" placeholder="Enter email">
                     </div>
                     
-
-
-
-
                     <div class="form-group">
-						 <label for="exampleInputEmail1">图片</label>
-                      	 <input type="text" value ="test.png" class="form-control" id="add-pic" placeholder="Enter Image" />
-	                     <img style='display:none' name="pic" id="pic" alt="No Image!" src="" />
+                        <label for="exampleInputEmail1">阶层</label>
+                        <select  class="form-control" id="add-level"></select>
                     </div>
+                    
                     <div class="form-group">
-                      	 <input type="hidden" value ="-1" class="form-control" id="add-pic-id" placeholder="Enter Image" />
+                        <label for="exampleInputEmail1">性别</label>
+                        <select  class="form-control" id="add-sex"></select>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">图片</label>
+                        <input type="text" value ="/images/test.png" class="form-control" id="add-pic" placeholder="Enter Image" />
+                        <img style='display:none' name="pic" id="img-pic" alt="No Image!" src="" />
+                    </div>
+
+                    <form method="POST" onsubmit="return uploadCheck('pic')" enctype="multipart/form-data" action="/files/upload" target="hidden_frame">
+
+                        <input id="file" type="file" name="file" onchange="changePicUrl()" />
+                        <input type="submit" value="上传" />
+
+                    </form>
+
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">产品详情图片</label>
+                        <input type="text" value ="/images/test.png" class="form-control" id="add-productImg" placeholder="Enter Image" />
+                        <img style='display:none' name="pic" id="img-productImg" alt="No Image!" src="" />
+                    </div>
+
+                    <form method="POST" onsubmit="return uploadCheck('productImg')" enctype="multipart/form-data" action="/files/upload" target="hidden_frame">
+
+                        <input id="file" type="file" name="file" onchange="changePicUrl()" />
+                        <input type="submit" value="上传" />
+
+                    </form>
+
+                    
+
+
+
          <!-- /file upload begin -->        
 
-		<form method="POST" enctype="multipart/form-data" action="/files/upload" target="hidden_frame">
-
-			<input id="file" type="file" name="file" onchange="changePicUrl()" />
-    	    <input type="submit" value="上传" />
-		
-		</form>
  
          <iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
          <!-- /file upload end -->
@@ -67,15 +76,23 @@
 
 
 <script type="text/javascript">
+    var currentImageFieldId = "pic-id";
   	function changePicUrl(){
 		var dFile = document.getElementById('file');
 	}
-  	function uploadSucced(msg,id,path){
+    function uploadCheck(fieldName){
+        currentImageFieldId =fieldName;
+       alert(fieldName);
+       return true;
+    }
 
-        document.getElementById('pic').src=path;
-        $("#pic").show();
-        document.getElementById("add-pic").value = path;
-        document.getElementById("add-pic-id").value = id;
+  	function uploadSucced(msg,id,path){
+        var imageShow = "img-" + currentImageFieldId;
+        var imagePath = "add-" + currentImageFieldId;
+        document.getElementById(imageShow).src=path;
+        $("#"+imageShow).show();
+        document.getElementById(imagePath).value = path;
+        //document.getElementById("add-pic-id").value = id;
         alert("Successful to upload file:" + path);
 
 	}

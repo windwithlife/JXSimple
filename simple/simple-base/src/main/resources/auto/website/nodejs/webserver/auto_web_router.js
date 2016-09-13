@@ -25,5 +25,23 @@ var themeHelper = require('../helper/theme_helper');
  });
  
 
+ //-----------------------Section---------------------------//
+ router.get('/level/', function(req, res, next) {
+  res.render('index',themeHelper.build(req));
+ });
+ 
+
+ //-----------------------Section---------------------------//
+ router.get('/dictionary/', function(req, res, next) {
+  res.render('index',themeHelper.build(req));
+ });
+ 
+
+ //-----------------------Section---------------------------//
+ router.get('/category/', function(req, res, next) {
+  res.render('index',themeHelper.build(req));
+ });
+ 
+
 
 module.exports = router;

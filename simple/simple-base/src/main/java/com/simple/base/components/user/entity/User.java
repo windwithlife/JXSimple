@@ -17,6 +17,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Entity
 public class User implements Serializable{
 

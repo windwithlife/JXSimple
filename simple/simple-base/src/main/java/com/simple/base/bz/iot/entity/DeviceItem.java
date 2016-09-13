@@ -30,7 +30,6 @@ public class DeviceItem implements Serializable {
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, fetch = FetchType.EAGER, optional = false)
 	private DeviceType type;
 
-	//@JoinColumn(name = "status_id",referencedColumnName="ref_id") // 关联device_status表的字段
 	@JoinColumn(name = "status_id") // 关联device_status表的字段
 	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@NotFound(action=NotFoundAction.IGNORE)

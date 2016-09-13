@@ -5,15 +5,20 @@ define(['model'],function(model){
     var rootPath = '/autoapi/';
 
     var query = function(cb){
-        model.get(rootPath + "products/",{},function(data){
-            cb(data._embedded.products);
-        });
+        model.get("/product/queryAll",{},cb);
+    };
+    var queryReferListByName= function(refer,cb){
+        model.get( "/" + refer + "/queryAll",{},cb);
+    };
+
+    var queryDictionaryListByParams= function(refer, params, cb){
+        model.get( "/dictionary/queryByCategory/",params,cb);
     };
     var queryByParams = function(params, cb){
         model.get(rootPath + "products/query",params,cb);
     };
     var queryById  = function(params,cb){
-        model.get(rootPath +  "products/"+params.id,params, cb);
+        model.get("/product/query/"+params.id, params, cb);
     };
     var update = function(params,cb){
         model.post("/product/update/"+params.id,params,cb);
@@ -22,12 +27,15 @@ define(['model'],function(model){
         model.post("/product/remove/"+params.id,params,cb);
     };
     var add = function(params,cb){
-        model.post(rootPath + "products/",params,cb);
+        model.post("/product/save",params,cb);
     };
     return{
         query:query,
         queryById:queryById,
         queryByParams:queryByParams,
+        queryReferListByName:queryReferListByName,
+        queryReferListByParams:queryDictionaryListByParams,
+        queryDictionaryByCategory:queryDictionaryListByParams,
         update:update,
         remove:remove,
         add:add,

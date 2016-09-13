@@ -16,6 +16,13 @@ public class ProductService {
 		return  dao.findAll();
 		//return items;
 	}
+	public  List<Product> findByName(String name){
+		return dao.findByName(name);
+	}
+	public  Product findOneByName(String name){
+    		return dao.findOneByName(name);
+    	}
+
 	public Product findById(Long id){
 		return dao.findOne(id);
 	}
@@ -25,4 +32,5 @@ public class ProductService {
 	public void remove(Long id){
 		this.dao.delete(id);
 	}
+	
 }

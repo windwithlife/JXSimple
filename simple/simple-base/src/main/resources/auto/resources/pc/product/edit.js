@@ -27,7 +27,27 @@ define(['simple','text!./templates/edit.html','router','homeModel'], function (S
             homeModel.queryById({id:p},function(data){
                 var params = {};params.data = data;
                 that.$el.html(that.template(params));
-            })
+
+                 
+                homeModel.queryReferListByName("level",function(data){
+                    console.log(JSON.stringify(data));
+                    data.forEach(function(selectItem){
+                        var item = new Option(selectItem.name, selectItem.id);
+                         var obj=document.getElementById("edit-level").options.add(item);
+                    });
+                });
+               
+                homeModel.queryReferListByName("dictionary",function(data){
+                    console.log(JSON.stringify(data));
+                    data.forEach(function(selectItem){
+                        var item = new Option(selectItem.name, selectItem.id);
+                         var obj=document.getElementById("edit-sex").options.add(item);
+                    });
+                });
+               
+
+            });
+
         },
         onShow: function () {
 
@@ -40,13 +60,35 @@ define(['simple','text!./templates/edit.html','router','homeModel'], function (S
             //alert("saveUPdate!");
         	 var params = {};
         	  
-                params.id = $("#edit-id").val();
+                    params.id = $("#edit-id").val();
+                
+
             
-                params.name = $("#edit-name").val();
+                    params.name = $("#edit-name").val();
+                
+
             
-                params.sex = $("#edit-sex").val();
+                    params.age = $("#edit-age").val();
+                
+
             
-                params.age = $("#edit-age").val();
+                    params.level = {};
+                    params.level.id = $("#edit-level").val();
+                
+
+            
+                    params.sex = {};
+                    params.sex.id = $("#edit-sex").val();
+                
+
+            
+                    params.pic = $("#edit-pic").val();
+                
+
+            
+                    params.productImg = $("#edit-productImg").val();
+                
+
             
             
             console.log(JSON.stringify(params));
@@ -55,9 +97,9 @@ define(['simple','text!./templates/edit.html','router','homeModel'], function (S
                 if(result){
                     router.goto("");
                 }
-            });
+            }); //end of the update.
         }
-    });
+    });  //end of the page.
 
 
 

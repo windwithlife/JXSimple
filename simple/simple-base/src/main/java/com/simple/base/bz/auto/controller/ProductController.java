@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.simple.base.bz.auto.entity.*;
@@ -25,6 +26,13 @@ public class ProductController {
 	@Autowired
 	ProductService service;
 
+  
+   @Autowired
+   private  LevelService levelService;
+   
+   @Autowired
+   private  DictionaryService dictionaryService;
+   
 
 
 	@RequestMapping(value= "/", method=RequestMethod.GET)
@@ -43,6 +51,7 @@ public class ProductController {
        	Product result = service.findById(id);
     	return result;
     }
+
     @ResponseBody
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public Product save(@RequestBody Product item) {
@@ -54,6 +63,22 @@ public class ProductController {
     @ResponseBody
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public Product save2(@RequestBody Product item) {
+		 
+                   Long levelId =item.getLevel().getId();
+                   if (levelId > 0){
+                   	  Level levelObj = levelService.findById(levelId);
+                      item.setLevel(levelObj);
+                   }
+
+         
+                   Long sexId =item.getSex().getId();
+                   if (sexId > 0){
+                   	  Dictionary sexObj = dictionaryService.findById(sexId);
+                      item.setSex(sexObj);
+                   }
+
+         
+
 		System.out.println("input device params:" + item.toString());
 		Product result = service.save(item);
 		System.out.println("output device result data:" + result.toString());
@@ -73,6 +98,24 @@ public class ProductController {
  	@ResponseBody
      	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
      	public Product updateSave(@PathVariable Long id, @RequestBody Product item) {
+     	   
+           Long levelId =item.getLevel().getId();
+           if (levelId > 0){
+           	  Level levelObj = levelService.findById(levelId);
+              item.setLevel(levelObj);
+           }
+
+           
+           Long sexId =item.getSex().getId();
+           if (sexId > 0){
+           	  Dictionary sexObj = dictionaryService.findById(sexId);
+              item.setSex(sexObj);
+           }
+
+           
+
+
+
      		System.out.println("input device params:" + item.toString());
      		Product result = service.save(item);
      		System.out.println("output device result data:" + result.toString());
@@ -93,5 +136,8 @@ public class ProductController {
     	service.remove(id);
     	return id;
     }
+
+
+    
 
 }

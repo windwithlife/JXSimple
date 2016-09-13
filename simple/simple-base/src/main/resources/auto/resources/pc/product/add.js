@@ -23,6 +23,27 @@ define(['simple','text!./templates/add.html','router','homeModel'], function (Si
             this.template = _.template($("#MainTemplate").html());
             var that = this;
             that.$el.html(that.template({}));
+
+             
+                 homeModel.queryReferListByName("level",function(data){
+                    console.log(JSON.stringify(data));
+                    data.forEach(function(selectItem){
+                        var item = new Option(selectItem.name, selectItem.id);
+                         var obj=document.getElementById("add-level").options.add(item);
+                    });
+                });
+               
+                params = {};
+                params.category = "sex";
+                homeModel.queryReferListByParams("dictionary",params,function(data){
+                    console.log(JSON.stringify(data));
+                    data.forEach(function(selectItem){
+                        var item = new Option(selectItem.name, selectItem.id);
+                         var obj=document.getElementById("add-sex").options.add(item);
+                    });
+                });
+                
+
         },
         onShow: function () {
 
@@ -33,16 +54,36 @@ define(['simple','text!./templates/add.html','router','homeModel'], function (Si
         saveUpdate: function(){
             //alert("saveUPdate!");
             var params = {};
-            
              
-                params.name = $("#add-name").val();
+                    params.name = $("#add-name").val();
+                
+
             
-                params.sex = $("#add-sex").val();
+                    params.age = $("#add-age").val();
+                
+
             
-                params.age = $("#add-age").val();
+                    params.level = {};
+                    params.level.id = $("#add-level").val();
+                
+
             
+                    params.sex = {};
+                    params.sex.id = $("#add-sex").val();
+                
+
             
-            console.log("form data value:" +　JSON.stringify(params));
+                    params.pic = $("#add-pic").val();
+                
+
+            
+                    params.productImg = $("#add-productImg").val();
+                
+
+            
+
+            
+             console.log("form data value:" +　JSON.stringify(params));
             homeModel.add(params,function(result){
                  console.log("AddNewSave result:" + JSON.stringify(result));
                 if(result){
