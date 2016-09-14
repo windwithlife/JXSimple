@@ -28,7 +28,7 @@ public class AdminController  implements EnvironmentAware {
         this.port = s;
     }
 	@RequestMapping(value= "/**/", method=RequestMethod.GET)
-    //@RequiresPermissions("userInfo:del")//权限管理;
+   
     public String index(){
        return "admin-index";
     } 
