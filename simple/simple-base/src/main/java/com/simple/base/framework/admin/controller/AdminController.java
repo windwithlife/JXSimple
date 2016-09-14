@@ -27,36 +27,12 @@ public class AdminController  implements EnvironmentAware {
         System.out.println(s);
         this.port = s;
     }
-	 
-	   @RequestMapping(value= "/iot/deviceType/", method=RequestMethod.GET)
-	    //@RequiresPermissions("userInfo:del")//权限管理;
-	    public String channelpage(){
-	       return "index";
-	    }
-	   @RequestMapping(value= "/iot", method=RequestMethod.GET)
-	    public String rootpage(){
-	       return "index";
-	   }
-	   @RequestMapping(value= "/product/", method=RequestMethod.GET)
-	    public String testproduct(){
-	       return "index";
-	   }
-	   @RequestMapping(value= "/user/user", method=RequestMethod.GET)
-	    public String userHome(){
-	       return "index";
-	    }
-	   @RequestMapping(value= "/user/role", method=RequestMethod.GET)
-	    public String userRoleHome(){
-	       return "index";
-	    }
-	   @RequestMapping(value= "/cms/channel", method=RequestMethod.GET)
-	    public String cmsChannelHome(){
-	       return "index";
-	    }
-	   @RequestMapping(value= "/cms/content", method=RequestMethod.GET)
-	    public String cmsContentHome(){
-	       return "index";
-	    }
+	@RequestMapping(value= "/**/", method=RequestMethod.GET)
+    //@RequiresPermissions("userInfo:del")//权限管理;
+    public String index(){
+       return "admin-index";
+    } 
+	
 	  
 	   @RequestMapping(value= "/analyse/{side}", method=RequestMethod.GET)
 	    //@RequiresPermissions("userInfo:del")//权限管理;

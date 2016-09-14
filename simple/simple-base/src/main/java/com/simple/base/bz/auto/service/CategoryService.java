@@ -19,6 +19,10 @@ public class CategoryService {
 	public  List<Category> findByName(String name){
 		return dao.findByName(name);
 	}
+	public  List<Category> findByNameLike(String name){
+    		return dao.findByNameLike(name);
+    }
+
 	public  Category findOneByName(String name){
     		return dao.findOneByName(name);
     	}

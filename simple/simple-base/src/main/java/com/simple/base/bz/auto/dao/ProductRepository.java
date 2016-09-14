@@ -6,6 +6,8 @@ import com.simple.base.bz.auto.entity.*;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
     public  List<Product> findByName(String name);
+    public  List<Product> findByNameLike(String name);
+
     public  Product findOneByName(String name);
 
     

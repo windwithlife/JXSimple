@@ -6,6 +6,8 @@ import com.simple.base.bz.auto.entity.*;
 
 public interface DictionaryRepository extends JpaRepository<Dictionary, Long> {
     public  List<Dictionary> findByName(String name);
+    public  List<Dictionary> findByNameLike(String name);
+
     public  Dictionary findOneByName(String name);
 
     

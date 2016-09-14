@@ -6,6 +6,8 @@ import com.simple.base.bz.auto.entity.*;
 
 public interface LevelRepository extends JpaRepository<Level, Long> {
     public  List<Level> findByName(String name);
+    public  List<Level> findByNameLike(String name);
+
     public  Level findOneByName(String name);
 
     

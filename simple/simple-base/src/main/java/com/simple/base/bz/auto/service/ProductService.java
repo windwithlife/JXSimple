@@ -19,6 +19,10 @@ public class ProductService {
 	public  List<Product> findByName(String name){
 		return dao.findByName(name);
 	}
+	public  List<Product> findByNameLike(String name){
+    		return dao.findByNameLike(name);
+    }
+
 	public  Product findOneByName(String name){
     		return dao.findOneByName(name);
     	}

@@ -19,6 +19,10 @@ public class LevelService {
 	public  List<Level> findByName(String name){
 		return dao.findByName(name);
 	}
+	public  List<Level> findByNameLike(String name){
+    		return dao.findByNameLike(name);
+    }
+
 	public  Level findOneByName(String name){
     		return dao.findOneByName(name);
     	}

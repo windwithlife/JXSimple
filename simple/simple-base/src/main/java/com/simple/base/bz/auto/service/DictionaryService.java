@@ -19,6 +19,10 @@ public class DictionaryService {
 	public  List<Dictionary> findByName(String name){
 		return dao.findByName(name);
 	}
+	public  List<Dictionary> findByNameLike(String name){
+    		return dao.findByNameLike(name);
+    }
+
 	public  Dictionary findOneByName(String name){
     		return dao.findOneByName(name);
     	}
